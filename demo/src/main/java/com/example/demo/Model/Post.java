@@ -15,5 +15,11 @@ public class Post {
     private String id;
     private String caption;
     private String user_id;
-    private String imageUrl;
+    private String image1;
+    private String image2;
+    private String image3;
+    private String image4;
+    private String image5;
+
+
 }
