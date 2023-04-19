@@ -13,5 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Post {
     @Id
     private String id;
-    private String status;
+    private String caption;
+    private String user_id;
+    private String imageUrl;
 }
