@@ -14,7 +14,4 @@ public class User {
     @Id
     private String id;
     private String name;
-    private String index_no;
-    private String school;
-    private String teacher;
 }
