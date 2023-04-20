@@ -1,6 +1,7 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Model.Post;
+import com.example.demo.Model.React;
 import com.example.demo.Service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,8 @@ public class PostController {
         postService.save(post);
         return post.getId();
     }
+
+
     @GetMapping(value = "/get")
     public List<Post> getPost(){
         return postService.get();
