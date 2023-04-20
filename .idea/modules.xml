@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/spirngboot_sliit_4axis.iml" filepath="$PROJECT_DIR$/.idea/spirngboot_sliit_4axis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spirngboot_sliit.iml" filepath="$PROJECT_DIR$/.idea/spirngboot_sliit.iml" />
     </modules>
   </component>
 </project>
