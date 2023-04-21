@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Objects;
+
 import java.util.Optional;
 
 @RestController
@@ -22,7 +22,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<Optional<User>> login(@RequestBody User user, HttpSession session){
-        System.out.println(user.getEmail());
+        System.out.println(user);
         try{
             Boolean ok = userService.validateUser(user.getEmail(),user.getPassword());
             if(ok) {
