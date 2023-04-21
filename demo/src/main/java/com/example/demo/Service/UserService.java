@@ -18,4 +18,8 @@ public class UserService {
     public Optional<User> singleUser(String name){
         return userRepository.findUserByname(name);
     }
+
+    public Optional<User> singleUserByEmail(String email){
+        return userRepository.findUserByEmail(email);
+    }
 }
