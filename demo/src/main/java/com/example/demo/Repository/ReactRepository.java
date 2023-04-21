@@ -5,9 +5,10 @@ import com.example.demo.Model.React;
 import com.example.demo.Model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ReactRepository extends MongoRepository<React,String> {
 
-    Optional<React> findReactBypostId(String postId);
+    List<React> findReactBypostId(String postId);
 }

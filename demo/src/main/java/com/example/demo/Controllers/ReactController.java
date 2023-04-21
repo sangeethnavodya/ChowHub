@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,9 +27,14 @@ public class ReactController {
     }
 
     @GetMapping(value = "/{postId}")
-    public ResponseEntity<Optional<React>> getHaha(@PathVariable String postId){
+    public List<React> getHaha(@PathVariable String postId){
         System.out.println(postId);
-        return new ResponseEntity<Optional<React>>(reactService.singleUser(postId), HttpStatus.OK);
+        return reactService.singleUser(postId);
 
+    }
+
+    @PutMapping("/{id}")
+    public void updateUser(@PathVariable("id") String id, @RequestBody React react) {
+        reactService.updateUser(id, react);
     }
 }
