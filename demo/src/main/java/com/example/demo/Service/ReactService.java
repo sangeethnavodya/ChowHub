@@ -24,11 +24,21 @@ public class ReactService {
         return reactRepository.findReactBypostId(name);
     }
 
-    public void updateUser(String id, React react) {
+    public void updateHaha(String id, React react) {
         Optional<React> existingUser = reactRepository.findById(id);
         if (existingUser.isPresent()) {
             React updatedUser = existingUser.get();
             updatedUser.setHahaCount(react.getHahaCount());
+            reactRepository.save(updatedUser);
+        } else {
+            throw new RuntimeException("User not found with id: " + id);
+        }
+    }
+    public void updateHeart(String id, React react) {
+        Optional<React> existingUser = reactRepository.findById(id);
+        if (existingUser.isPresent()) {
+            React updatedUser = existingUser.get();
+            updatedUser.setHeartCount(react.getHeartCount());
             reactRepository.save(updatedUser);
         } else {
             throw new RuntimeException("User not found with id: " + id);

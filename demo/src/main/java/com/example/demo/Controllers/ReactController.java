@@ -34,7 +34,12 @@ public class ReactController {
     }
 
     @PutMapping("/{id}")
-    public void updateUser(@PathVariable("id") String id, @RequestBody React react) {
-        reactService.updateUser(id, react);
+    public void updateHaha(@PathVariable("id") String id, @RequestBody React react) {
+        reactService.updateHaha(id, react);
+    }
+
+    @PutMapping("heart/{id}")
+    public void updateHeart(@PathVariable("id") String id, @RequestBody React react) {
+        reactService.updateHeart(id, react);
     }
 }
