@@ -1,0 +1,75 @@
+.create-head {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-post {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-item-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.upload-widget {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.upload-widget:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+  color: #fff;
+}
+
+.upload-widget:active,
+.upload-widget:focus {
+  background-color: #096dd9;
+  border-color: #096dd9;
+  color: #fff;
+}
+
+.file-upload {
+  display: none;
+}
+
+.upload-label {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #777;
+}
+
+.preview-image {
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
+.ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+.ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+  color: #fff;
+}
+
+.ant-btn-primary:active,
+.ant-btn-primary:focus {
+  background-color: #096dd9;
+  border-color: #096dd9;
+  color: #fff;
+}
