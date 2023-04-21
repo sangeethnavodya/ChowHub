@@ -30,7 +30,6 @@ public class ReactController {
     public List<React> getHaha(@PathVariable String postId){
         System.out.println(postId);
         return reactService.singleUser(postId);
-
     }
 
     @PutMapping("/{id}")

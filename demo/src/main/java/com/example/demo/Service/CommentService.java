@@ -23,6 +23,10 @@ public class CommentService {
         return commentRepository.findAll();
     }
 
+    public List<Comment> getCommentByPostID(String postId) {
+        return commentRepository.findCommentByPostid(postId);
+    }
+
 //    public Optional<User> singleUser(String name){
 //        return userRepository.findUserByname(name);
 //    }

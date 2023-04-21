@@ -15,6 +15,6 @@ public class Comment {
     private String id;
     private String author;
     private String comment;
-    private String post_id;
+    private String postid;
     private String user_id;
 }
