@@ -11,7 +11,7 @@ function HomePage() {
                 localStorage.removeItem('userId');
                 localStorage.removeItem('userEmail');
                 localStorage.removeItem('name');
-                navigate('/login', { replace: true });
+                navigate('/', { replace: true });
             }}
             >Logout</Button>
         </div>

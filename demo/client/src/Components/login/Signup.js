@@ -99,7 +99,7 @@ const Signup = () => {
                             >
                                 Sign Up
                             </Button>
-                            <div style={{ marginTop: "16px", textAlign: "center" }} onClick={() => navigate('/login', { replace: true })}>
+                            <div style={{ marginTop: "16px", textAlign: "center" }} onClick={() => navigate('/', { replace: true })}>
                                 Already member? <a href="#">Log in</a>
                             </div>
                         </Form.Item>
