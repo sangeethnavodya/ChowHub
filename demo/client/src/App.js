@@ -4,7 +4,6 @@ import CreatePost from './Components/Post/CreatePost';
 import React from 'react';
 import HomePage from './Components/HomePage/HomePage';
 import ShowALLPost from './Components/Post/ShowPost';
-import { useState, useEffect } from "react";
 import Login from './Components/login/Login';
 import Signup from "./Components/login/Signup";
 import { Routes, Route, Navigate } from 'react-router-dom';

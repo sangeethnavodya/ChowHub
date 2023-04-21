@@ -1,8 +1,7 @@
-import { Button, Form, Input, Space, Card } from 'antd';
+import { Button, Form, Input, Space, Card, message } from 'antd';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-//import './signup.css'; // import CSS file
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -20,11 +19,16 @@ const Signup = () => {
         axios.post('http://localhost:8080/user/save',data)
             .then(response => {
                 console.log(response.data);
-                navigate('/login', { replace: true });
+                message.success('Signup Successful');
+                navigate('/', { replace: true });
             })
+            .then(
+                () => {navigate('/', { replace: true });}
+            )
             .catch(error => {
                 console.log("Signup Failed");
                 console.error(error);
+                message.error('Signup Failed');
             })
             .finally(() => setLoading(false));
     };

@@ -1,5 +1,3 @@
-
-import Login from "./Login";
 import { Navigate, useLocation } from "react-router";
 
 const PrivateRoute = ({ element: Component}) => {

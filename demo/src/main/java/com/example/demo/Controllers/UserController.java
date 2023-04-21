@@ -17,9 +17,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(value = "/save")
-    public String saveUser(@RequestBody User user) {
+    public ResponseEntity<Optional<User>> saveUser(@RequestBody User user) {
+        if(userService.singleUserByEmail(user.getEmail()).isPresent()){
+            return new ResponseEntity<Optional<User>>(HttpStatus.UNAUTHORIZED);
+        }
       userService.save(user);
-      return user.getId();
+        return new ResponseEntity<Optional<User>>(HttpStatus.OK);
     }
     @GetMapping(value = "/{name}")
      public ResponseEntity<Optional<User>> signIn(@PathVariable String name){
