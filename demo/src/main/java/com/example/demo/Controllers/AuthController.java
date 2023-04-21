@@ -24,23 +24,37 @@ public class AuthController {
     public ResponseEntity<Optional<User>> login(@RequestBody User user, HttpSession session){
         System.out.println(user.getEmail());
         try{
-            Optional<User> u = userService.singleUserByEmail(user.getEmail());
-            if(u.isPresent()){
-                if(Objects.equals(u.get().getPassword(), user.getPassword())){
-                    System.out.println("login ok");
-                    session.setAttribute("name",u.get().getName());
-                    session.setAttribute("id",u.get().getId());
-                    return new ResponseEntity<Optional<User>>(u,HttpStatus.OK);
-                }
-                System.out.println("login fail");
-                return new ResponseEntity<Optional<User>>(HttpStatus.UNAUTHORIZED);
-            }else{
-                System.out.println("login fail");
-                return new ResponseEntity<Optional<User>>(HttpStatus.UNAUTHORIZED);
+            Boolean ok = userService.validateUser(user.getEmail(),user.getPassword());
+            if(ok) {
+                System.out.println("login ok");
+                session.setAttribute("name", user.getName());
+                session.setAttribute("id", user.getId());
+                return new ResponseEntity<Optional<User>>(userService.singleUserByEmail(user.getEmail()), HttpStatus.OK);
             }
+//            Optional<User> u = userService.singleUserByEmail(user.getEmail());
+//            if(u.isPresent()){
+//                if(Objects.equals(u.get().getPassword(), user.getPassword())){
+//                    System.out.println("login ok");
+//                    session.setAttribute("name",u.get().getName());
+//                    session.setAttribute("id",u.get().getId());
+//                    return new ResponseEntity<Optional<User>>(u,HttpStatus.OK);
+//                }
+                System.out.println("login fail");
+                return new ResponseEntity<Optional<User>>(HttpStatus.UNAUTHORIZED);
+//            }else{
+//                System.out.println("login fail");
+//                return new ResponseEntity<Optional<User>>(HttpStatus.UNAUTHORIZED);
+//            }
         }catch(Exception e){
             System.out.println(e.getMessage());
             return new ResponseEntity<Optional<User>>(HttpStatus.UNAUTHORIZED);
         }
+    }
+
+    @GetMapping("/logout")
+    public ResponseEntity<Optional<User>> logout(HttpSession session){
+        session.removeAttribute("name");
+        session.removeAttribute("id");
+        return new ResponseEntity<Optional<User>>(HttpStatus.OK);
     }
 }
