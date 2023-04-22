@@ -1,10 +1,12 @@
 import React from "react";
 import { Button, Row, Space } from "antd";
 import { useNavigate } from "react-router-dom";
+import SeePost from "../Post/ShowPost";
 import axios from "axios";
 function HomePage() {
     const navigate = useNavigate();
     return (
+        <>
         <Row>
         <div>
              <Button type="primary" onClick={() => {
@@ -23,6 +25,8 @@ function HomePage() {
                 <Button type="primary" onClick={() =>{navigate('/createPosts')}}>Create Post</Button>
             </div>
         </Row>
+        <SeePost/>
+</>
     )
 }
 export default HomePage
