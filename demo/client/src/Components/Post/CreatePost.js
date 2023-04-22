@@ -161,7 +161,7 @@ function CreatePost() {
               console.log(response.data)
             })
             .then(() => {
-              navigate("/seePosts");
+              navigate("/home");
             })
             .catch(error => {
               console.error(error);

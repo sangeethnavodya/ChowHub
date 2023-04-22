@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Row, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import SeePost from "../Post/ShowPost";
-import axios from "axios";
+
 function HomePage() {
     const navigate = useNavigate();
     return (

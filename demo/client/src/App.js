@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/home' element={<PrivateRoute element={<HomePage/>}/>} />
         <Route path='/seePosts' element={<PrivateRoute element={<ShowALLPost/>}/>}/>
-        <Route path='/createPost' element={<PrivateRoute element={<CreatePost/>}/>}/>
+        <Route path='/createPosts' element={<PrivateRoute element={<CreatePost/>}/>}/>
         <Route path='/' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
       </Routes>
