@@ -1,6 +1,7 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Model.Comment;
+import com.example.demo.Model.React;
 import com.example.demo.Model.User;
 import com.example.demo.Service.CommentService;
 import com.example.demo.Service.UserService;
@@ -28,5 +29,10 @@ public class CommentController {
     public String showcomments(){
         List<Comment> commentList= commentService.getAllCommnets();
         return commentList.toString();
+    }
+    @GetMapping(value = "/{postId}")
+    public List<Comment> getHaha(@PathVariable String postId){
+        System.out.println(postId);
+        return commentService.getCommentByPostID(postId);
     }
 }
