@@ -11,5 +11,4 @@ import java.util.Optional;
 public interface CommentRepository extends MongoRepository<Comment,String> {
     //Optional<User> findUserByname(String name);
     List<Comment> findCommentByPostid(String postId);
-
 }
