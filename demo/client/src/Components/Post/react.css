@@ -1,0 +1,39 @@
+.main-React {
+    display: flex;
+    margin-left: 10px;
+  }
+  
+  .reactCount {
+    margin: 0 10px; /* Add some space between the elements */
+  }
+  .main-react {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .main-haha, .main-wow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 10px;
+    cursor: pointer;
+  }
+  
+  .emoji-haha {
+    font-size: 24px;
+    color: #fadb14;
+  }
+  .emoji-wow{
+    font-size: 24px;
+    color: #f40303;
+  }
+  
+  .reactCount {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #888;
+  }
+  
