@@ -8,6 +8,9 @@ import Login from './Components/login/Login';
 import Signup from "./Components/login/Signup";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './Components/login/PrivateRoute';
+import Profile from './Components/ProfileComponent/profile';
+import ShowUsers from './Components/User/ShowUsers';
+import ShowPostOther from './Components/User/ShowUserProfile';
 
 
 function App() {
@@ -19,6 +22,9 @@ function App() {
         <Route path='/createPosts' element={<PrivateRoute element={<CreatePost/>}/>}/>
         <Route path='/' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
+        <Route path='/yourProf' element={<Profile/>}/>
+        <Route path='/showAllUsers' element={<ShowUsers/>}/>
+        <Route path='/profileOther' element={<ShowPostOther/>}/>
       </Routes>
     </div>
   );

@@ -1,0 +1,50 @@
+.profile-pic {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .upload-pro-widget {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .name-label {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .upload-widget {
+    background-color: #f1f1f1;
+    border: none;
+    color: black;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .upload-widget:hover {
+    background-color: #ddd;
+  }
+  
+  .upload-button {
+    background-color: #1890ff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .upload-button:hover {
+    background-color: #40a9ff;
+  }
+  
