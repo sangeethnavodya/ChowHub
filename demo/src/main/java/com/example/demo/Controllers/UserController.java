@@ -33,7 +33,7 @@ public class UserController {
     @PutMapping("/{id}")
     public void updateProfile(@PathVariable("id") String id, @RequestBody User user) {
         userService.updateProfile(id, user);
-    }v
+    }
 
     @GetMapping("")
     public List<User> getAll(){
