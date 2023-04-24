@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,5 +28,15 @@ public class UserController {
     @GetMapping(value = "/{name}")
      public ResponseEntity<Optional<User>> signIn(@PathVariable String name){
          return new ResponseEntity<Optional<User>>(userService.singleUser(name), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public void updateProfile(@PathVariable("id") String id, @RequestBody User user) {
+        userService.updateProfile(id, user);
+    }
+
+    @GetMapping("")
+    public List<User> getAll(){
+        return userService.getAllUsers();
     }
 }
