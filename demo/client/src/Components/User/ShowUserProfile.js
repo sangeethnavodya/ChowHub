@@ -3,6 +3,7 @@ import axios from 'axios'
 import react, { useEffect, useState } from 'react'
 import '../ProfileComponent/profile.css'
 import ShowPostUser from '../ProfileComponent/ShowPostUser';
+import ShowOtherUser from './ShowOtherUser';
 
 
 function Profile() {
@@ -31,29 +32,8 @@ function Profile() {
     if (isLoading) {
         return <div>Loading post details...</div>;
     }
-    function handleOpenWidget() {
-        var myWidget = window.cloudinary.createUploadWidget({
-            cloudName: 'dugke0heo',
-            uploadPreset: 'nxlpfvfq'
-        }, (error, result) => {
-            if (!error && result && result.event === "success") {
-                console.log('Done! Here is the image info: ', result.info);
-                setImage({ ...image, "profileURL": result.info.url })
-                setIsUpload(true)
-            }
-        }
-        )
-        myWidget.open();
-    }
 
-    function handleUpload() {
-        axios.put('http://localhost:8080/user/' + localStorage.getItem('otherId'), image).then(
-            upload => {
-                console.log(upload)
-                window.location.reload();
-            }
-        )
-    }
+
 
     return (
 
@@ -68,18 +48,11 @@ function Profile() {
                     />
                 </Card>
          
-            
-        
-            {isUpload && (
-                <Button onClick={() => handleUpload()} className='upload-button'>
-                    Upload Your Profile
-                </Button>
-            )}
             <Card className='name-label'>
                 <h1>{details.data.name}'s Profile</h1>
             </Card>
             <Card className='name-label'>
-                <ShowPostUser />
+                <ShowOtherUser />
             </Card>
         </div>
 

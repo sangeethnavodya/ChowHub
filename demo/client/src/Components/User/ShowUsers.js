@@ -33,7 +33,6 @@ function ShowUsers() {
         user.map((item, index) => {
             if (item.id === localStorage.getItem('userId')){
                 setUserDetails(user.filter((item) => item.id !== localStorage.getItem('userId')));
-
             }
       })
     }
