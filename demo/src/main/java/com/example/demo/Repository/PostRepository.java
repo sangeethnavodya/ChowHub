@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface PostRepository extends MongoRepository<Post,String> {
     List<Post> findAll();
+    List<Post> findAllByUserId(String userId);
 }
