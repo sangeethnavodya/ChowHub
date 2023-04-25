@@ -19,7 +19,7 @@ function ShowUsers() {
     useEffect(() => {
         async function fetchData() {
             setIsLoading(true);
-            const response = await axios.get('http://localhost:8080/user/');
+            const response = await axios.get('http://localhost:8080/user');
             setUserDetails(response.data);
             setIsLoading(false);
             console.log(response)
