@@ -32,6 +32,7 @@ function PostList() {
   return (
     <>
       {postList.map((post, index) => (
+
         <Card
           className="post-card"
           key={post.id}
@@ -46,11 +47,12 @@ function PostList() {
             </>
           }
         >
+          <Meta title={post.userName} />
           <Meta title={post.caption} />
-           <ReactComponent data={post} />
-           <ShowComments data={post}/>
-           <CommentComponent data={post}/>
-          
+          <ReactComponent data={post} />
+          <ShowComments data={post} />
+          <CommentComponent data={post} />
+
         </Card>
       ))}
     </>

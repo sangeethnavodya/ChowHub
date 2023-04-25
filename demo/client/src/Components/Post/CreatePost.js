@@ -121,6 +121,8 @@ function CreatePost() {
   image3:"",
   image4:"",
   image5:"",
+  userId:localStorage.getItem('userId'),
+  userName:localStorage.getItem('name'),
   caption:""
  })
 
