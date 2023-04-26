@@ -8,11 +8,12 @@ import { useNavigate } from "react-router";
 function ShowUsers() {
     const [postList, setPostList] = useState([]);
     const [user, setUserDetails] = useState([]);
+    const [followe,setFollowDetails]=useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const navigate=useNavigate();
-    function handleFollow(post){
-        localStorage.setItem('otherId',post.id);
-        localStorage.setItem('otherName',post.name);
+    const navigate = useNavigate();
+    function handleFollow(post) {
+        localStorage.setItem('otherId', post.id);
+        localStorage.setItem('otherName', post.name);
         navigate('/profileOther')
     }
 
@@ -26,15 +27,19 @@ function ShowUsers() {
         }
         fetchData();
     }, []);
+
+
+
+
     if (isLoading) {
         return <div className="v-t">Loading post details...</div>;
     }
     if (!isLoading) {
         user.map((item, index) => {
-            if (item.id === localStorage.getItem('userId')){
+            if (item.id === localStorage.getItem('userId')) {
                 setUserDetails(user.filter((item) => item.id !== localStorage.getItem('userId')));
             }
-      })
+        })
     }
     return (
 
@@ -58,7 +63,7 @@ function ShowUsers() {
                     }
                 >
                     <Meta title={post.name} className="instagram-name" />
-                    <Button onClick={()=>handleFollow(post)}>View profile</Button>
+                    <Button onClick={() => handleFollow(post)}>View profile</Button>
                 </Card>
             ))}
         </div>
