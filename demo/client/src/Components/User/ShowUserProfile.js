@@ -26,14 +26,16 @@ function Profile() {
                 console.log(user)
                 setIsLoading(false)
                 setdetails(user)
-                if (user.data.profileURL !== null) {
-                    setNot(true)
+                if (details.length>0) {
+                    if (user.data.profileURL !== null) {
+                        setNot(true)
+                    }
                 }
             });
         }
         fetchData()
     }, []);
-
+    
     useEffect(() => {
         setIsLoading(true)
         async function fetchData() {
@@ -47,24 +49,27 @@ function Profile() {
                         setneedToInit(true)
                         setIsFollow(false)
                     }
-                    else if(!user.data[0].isFollowed){
+                    else if (!user.data[0].isFollowed) {
                         setFollowBTN("Follow")
                         setneedToInit(false)
+                        setIsLoading(false)
                         setIsFollow(false)
-                        
+
                     }
-                    else if(user.data[0].isFollowed){
+                    else if (user.data[0].isFollowed) {
                         setFollowBTN("Unfollow")
                         setneedToInit(false)
                         setIsFollow(true)
+                        setIsLoading(false)
                     }
-                    else{
+                    else {
                         setIsLoading(false)
                         setFollowBTN("Unfollow")
                         setneedToInit(false)
                         setIsFollow(true)
+                        setIsLoading(false)
                     }
-                    
+
                 }
             );
         }
@@ -81,17 +86,17 @@ function Profile() {
         return <div>Loading post details...</div>;
     }
     function handleFollow() {
-        if (needToInit){
-            axios.post("http://localhost:8080/follow/upload",Follow)
+        if (needToInit) {
+            axios.post("http://localhost:8080/follow/upload", Follow)
             setneedToInit(false)
             setFollowBTN("Unfollow")
         }
-        else if(!needToInit&&isFollow){
-            axios.put("http://localhost:8080/follow/"+ localStorage.getItem('userId') + "/" + localStorage.getItem('otherId'))
+        else if (!needToInit && isFollow) {
+            axios.put("http://localhost:8080/follow/" + localStorage.getItem('userId') + "/" + localStorage.getItem('otherId'))
             setFollowBTN("Follow")
         }
-        else if(!needToInit&&!isFollow){
-            axios.put("http://localhost:8080/follow/unfollow/"+ localStorage.getItem('userId') + "/" + localStorage.getItem('otherId'))
+        else if (!needToInit && !isFollow) {
+            axios.put("http://localhost:8080/follow/unfollow/" + localStorage.getItem('userId') + "/" + localStorage.getItem('otherId'))
             setFollowBTN("UnFollow")
         }
     }
