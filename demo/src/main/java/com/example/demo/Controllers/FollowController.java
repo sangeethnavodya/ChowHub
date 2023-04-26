@@ -35,7 +35,7 @@ public class FollowController {
         followService.updateUNFollow(follwerId,userId);
     }
 
-    @GetMapping("/getByUser")
+    @GetMapping("/getByUser/{userId}")
     public List<Follow> get(@PathVariable String userId){
         return  followService.findById(userId);
     }
