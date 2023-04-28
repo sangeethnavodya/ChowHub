@@ -65,4 +65,10 @@
     color: blue;
     padding: 30px;
   }
+  .Nav-bar{
+    width: 1000px;
+    height:fit-content;
+    color: #007bff;
+    margin-left: 50px;
+  }
   

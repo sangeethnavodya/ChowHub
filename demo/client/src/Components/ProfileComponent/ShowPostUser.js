@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import ReactComponent from "../Post/ReactComponent";
 import ShowComments from "../Comment/ShowComment";
 import CommentComponent from "../Comment/CommentComponent";
-import { Card } from "antd";
+import {Breadcrumb, Card} from "antd";
 
 function ShowPostUser() {
     const [postList, setPostList] = useState([]);
@@ -26,6 +26,7 @@ function ShowPostUser() {
     }
     return (
         <>
+
             {postList.map((post, index) => (
 
                 <Card

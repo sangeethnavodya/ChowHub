@@ -1,4 +1,4 @@
-import { Button, Card, Form } from 'antd';
+import {Breadcrumb, Button, Card, Form} from 'antd';
 import axios from 'axios'
 import react, { useEffect, useState } from 'react'
 import '../ProfileComponent/profile.css'
@@ -56,7 +56,23 @@ function Profile() {
 
     return (
 
-        <div>
+        <div className='main-div-profile'>
+            <Breadcrumb
+                items={[
+                    {
+                        title: 'Home',
+                    },
+                    {
+                        title: <a href="/seePosts">News Feed</a>,
+                    },
+                    {
+                        title: <a href="/showAllUsers">View Others</a>,
+                    },
+                ]}
+            />
+            <Card className='name-label'>
+                <h1>{details.data.name}'s Profile</h1>
+            </Card>
             {not && (
                 <Card className='profile-pic'>
                     <img
@@ -77,19 +93,20 @@ function Profile() {
                     />
                 </Card>
             )}
-            <Form.Item label='Upload' valuePropName='fileList' className='upload-pro-widget'>
-                <Button className='upload-widget' onClick={() => handleOpenWidget()}>
-                    Upload Picture
-                </Button>
-            </Form.Item>
-            {isUpload && (
-                <Button onClick={() => handleUpload()} className='upload-button'>
-                    Upload Your Profile
-                </Button>
-            )}
-            <Card className='name-label'>
-                <h1>{details.data.name}'s Profile</h1>
-            </Card>
+            <div className='upload-div'>
+                <Form.Item label='Upload' valuePropName='fileList' className='upload-pro-widget'>
+                    <Button className='upload-widget' onClick={() => handleOpenWidget()}>
+                        Upload Picture
+                    </Button>
+                </Form.Item>
+                {isUpload && (
+                    <Button onClick={() => handleUpload()} className='upload-button'>
+                        Upload Your Profile
+                    </Button>
+                )}
+            </div>
+
+
             <Card className='name-label'>
                 <ShowPostUser />
             </Card>

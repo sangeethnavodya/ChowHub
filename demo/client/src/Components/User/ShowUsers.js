@@ -1,4 +1,4 @@
-import { Button, Card } from "antd";
+import {Breadcrumb, Button, Card} from "antd";
 import Meta from "antd/es/card/Meta";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -44,6 +44,22 @@ function ShowUsers() {
     return (
 
         <div className="vvv">
+            <Breadcrumb
+                items={[
+                    {
+                        title: <a href="/home">Home</a>,
+                    },
+                    {
+                        title: <a href="/yourProf">See your Profile</a>
+                    },
+                    {
+                        title: <a href="/createPosts">Create Post</a>,
+                    },
+                    {
+                        title: <a href="/showAllUsers">Show All Users</a>,
+                    },
+                ]}
+                className='Nav-bar'/>
             {user.map((post, index) => (
 
                 <Card
@@ -51,14 +67,21 @@ function ShowUsers() {
                     key={post.id}
                     style={{
                         width: 1200,
-                        height: 300
+                        height: 300,
                     }}
                     cover={
                         <>
-                            {post.profileURL && <img alt="example" style={{
-                                height: '100px',
-                                width: '200px'
-                            }} src={post.profileURL} />}
+                            {post.profileURL && (
+                                <img
+                                    alt="example"
+                                    style={{
+                                        height: '100px',
+                                        width: '200px',
+                                        marginLeft: '500px'
+                                    }}
+                                    src={post.profileURL}
+                                />
+                            )}
                         </>
                     }
                 >

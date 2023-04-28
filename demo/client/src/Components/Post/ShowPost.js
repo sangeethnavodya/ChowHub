@@ -31,6 +31,7 @@ function PostList() {
 
   return (
     <>
+
       {postList.map((post, index) => (
 
         <Card
