@@ -1,8 +1,9 @@
-import {Breadcrumb, Button, Card, Form} from 'antd';
+import {Breadcrumb, Button, Card, Form, Image, Space} from 'antd';
 import axios from 'axios'
-import react, { useEffect, useState } from 'react'
+import react, {useEffect, useState} from 'react'
 import '../ProfileComponent/profile.css'
 import ShowPostUser from './ShowPostUser';
+import {Header} from "antd/es/layout/layout";
 
 function Profile() {
     const [details, setdetails] = useState([])
@@ -25,22 +26,24 @@ function Profile() {
                 }
             });
         }
+
         fetchData()
     }, []);
     if (isLoading) {
         return <div>Loading post details...</div>;
     }
+
     function handleOpenWidget() {
         var myWidget = window.cloudinary.createUploadWidget({
-            cloudName: 'dugke0heo',
-            uploadPreset: 'nxlpfvfq'
-        }, (error, result) => {
-            if (!error && result && result.event === "success") {
-                console.log('Done! Here is the image info: ', result.info);
-                setImage({ ...image, "profileURL": result.info.url })
-                setIsUpload(true)
+                cloudName: 'dugke0heo',
+                uploadPreset: 'nxlpfvfq'
+            }, (error, result) => {
+                if (!error && result && result.event === "success") {
+                    console.log('Done! Here is the image info: ', result.info);
+                    setImage({...image, "profileURL": result.info.url})
+                    setIsUpload(true)
+                }
             }
-        }
         )
         myWidget.open();
     }
@@ -69,46 +72,49 @@ function Profile() {
                         title: <a href="/showAllUsers">View Others</a>,
                     },
                 ]}
-            className='Nav-bar'/>
+                className='Nav-bar'/>
             <Card className='name-label'>
-                <h1>{details.data.name}'s Profile</h1>
+                <Header className='new-class-header'>{details.data.name}'s Profile</Header>
             </Card>
-            {not && (
-                <Card className='profile-pic'>
-                    <img
-                        src={details.data.profileURL}
-                        height='100px'
-                        width='100px'
-                        alt='Profile'
-                    />
-                </Card>
-            )}
-            {!not && (
-                <Card className='profile-pic'>
-                    <img
-                        src=''
-                        height='100px'
-                        width='100px'
-                        alt='Profile Placeholder'
-                    />
-                </Card>
-            )}
-            <div className='upload-div'>
-                <Form.Item label='Upload' valuePropName='fileList' className='upload-pro-widget'>
-                    <Button className='upload-widget' onClick={() => handleOpenWidget()}>
-                        Upload Picture
-                    </Button>
-                </Form.Item>
-                {isUpload && (
-                    <Button onClick={() => handleUpload()} className='upload-button'>
-                        Upload Your Profile
-                    </Button>
+            <Space>
+
+                {not && (
+                    <Card className='profile-pic'>
+                        <Image
+                            src={details.data.profileURL}
+                            height='200px'
+                            width='200px'
+                            alt='Profile'
+                        />
+                    </Card>
                 )}
-            </div>
+                {!not && (
+                    <Card className='profile-pic'>
+                        <img
+                            src=''
+                            height='100px'
+                            width='100px'
+                            alt='Profile Placeholder'
+                        />
+                    </Card>
+                )}
+                <div className='upload-div'>
+                    <Form.Item label='Upload' valuePropName='fileList' className='upload-pro-widget'>
+                        <Button className='upload-widget' onClick={() => handleOpenWidget()}>
+                            Upload Picture
+                        </Button>
+                    </Form.Item>
+                    {isUpload && (
+                        <Button onClick={() => handleUpload()} className='upload-button'>
+                            Upload Your Profile
+                        </Button>
+                    )}
+                </div>
+            </Space>
 
 
             <Card className='name-label'>
-                <ShowPostUser />
+                <ShowPostUser/>
             </Card>
         </div>
 

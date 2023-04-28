@@ -22,22 +22,11 @@ function HomePage() {
 
                     >Logout</Button>
                 </div>
-                <Breadcrumb
-                    items={[
-                        {
-                            title: 'Home',
-                        },
-                        {
-                            title: <a href="/yourProf">See your Profile</a>
-                        },
-                        {
-                            title: <a href="/createPosts">Create Post</a>,
-                        },
-                        {
-                            title: <a href="/showAllUsers">Show All Users</a>,
-                        },
-                    ]}
-                className='Nav-bar'/>
+                <Space direction='horizontal' className='Nav-bar'>
+                    <a href="/yourProf" className='anchor'>See your Profile</a>
+                    <a href="/createPosts" className='anchor'>Create Post</a>
+                    <a href="/showAllUsers" className='anchor'>Show All Users</a>
+                </Space>
             </Row>
             <SeePost />
         </>
