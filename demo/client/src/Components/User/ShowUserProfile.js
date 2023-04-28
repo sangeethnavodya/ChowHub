@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card } from 'antd';
+import {Button, Card, Space} from 'antd';
 import axios from 'axios';
 import '../ProfileComponent/profile.css';
 import ShowOtherUser from './ShowOtherUser';
 import ShowPostUser from '../ProfileComponent/ShowPostUser';
+import {Header} from "antd/es/layout/layout";
 
 function Profile() {
     const [details, setDetails] = useState({});
@@ -70,13 +71,17 @@ function Profile() {
                 <div>Loading post details...</div>
             ) : (
                 <>
-                    <Card className="profile-pic">
-                        <img src={details.profileURL} height="100px" width="100px" alt="Profile" />
-                    </Card>
-                    <Card className="name-label">
-                        <h1>{details.name}'s Profile</h1>
-                        <Button onClick={handleFollow}>{followBtnText}</Button>
-                    </Card>
+                    <Space direction='horizontal'>
+                        <Card className="profile-pic">
+                            <img src={details.profileURL} height="100px" width="100px" alt="Profile" />
+                        </Card>
+                        <Header className="new-class-header">
+                            <h1>{details.name}'s Profile</h1>
+                            <Button onClick={handleFollow}>{followBtnText}</Button>
+                        </Header>
+
+                    </Space>
+
                     <Card className="name-label">
                         <ShowOtherUser />
                     </Card>

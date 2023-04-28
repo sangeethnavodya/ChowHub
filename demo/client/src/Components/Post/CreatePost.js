@@ -1,22 +1,23 @@
 import { PlusOutlined } from '@ant-design/icons';
 import '../Post/create.css'
 import {
-  Button,
-  Cascader,
-  Checkbox,
-  DatePicker,
-  Form,
-  Input,
-  InputNumber,
-  Radio,
-  Select,
-  Switch,
-  TreeSelect,
-  Upload,
+    Button, Card,
+    Cascader,
+    Checkbox,
+    DatePicker,
+    Form,
+    Input,
+    InputNumber,
+    Radio,
+    Select, Space,
+    Switch,
+    TreeSelect,
+    Upload,
 } from 'antd';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {Header} from "antd/es/layout/layout";
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
@@ -180,7 +181,13 @@ function CreatePost() {
 
   return (
     <>
-      <h1 className='create-head'>Create A Post</h1>
+        <Space direction='horizontal' className='Nav-bar'>
+            <a href="/home" className='anchor'>News Feed</a>
+            <a href="/showAllUsers" className='anchor'>Show All Users</a>
+        </Space>
+      <Header className='new-class-header'>
+         <div>Create A Post</div>
+      </Header>
       <Checkbox
         checked={componentDisabled}
         onChange={(e) => setComponentDisabled(e.target.checked)}
@@ -220,7 +227,9 @@ function CreatePost() {
           <Button className='upload-widget' onClick={() => handleOpenWidget4()}>Upload picture</Button>
         </Form.Item>
 
-        <Button onClick={handleSubmit}>Create Post</Button>
+        <Button onClick={handleSubmit} style={{
+            margin:"10px"
+        }}>Create Post</Button>
        
 
       </Form>

@@ -4,6 +4,7 @@ import react, {useEffect, useState} from 'react'
 import '../ProfileComponent/profile.css'
 import ShowPostUser from './ShowPostUser';
 import {Header} from "antd/es/layout/layout";
+import React from "react";
 
 function Profile() {
     const [details, setdetails] = useState([])
@@ -60,19 +61,10 @@ function Profile() {
     return (
 
         <div className='main-div-profile'>
-            <Breadcrumb
-                items={[
-                    {
-                        title: 'Home',
-                    },
-                    {
-                        title: <a href="/home">News Feed</a>,
-                    },
-                    {
-                        title: <a href="/showAllUsers">View Others</a>,
-                    },
-                ]}
-                className='Nav-bar'/>
+            <Space direction='horizontal' className='Nav-bar'>
+                <a href="/home" className='anchor'>News Feed</a>
+                <a href="/showAllUsers" className='anchor'>Show All Users</a>
+            </Space>
             <Card className='name-label'>
                 <Header className='new-class-header'>{details.data.name}'s Profile</Header>
             </Card>

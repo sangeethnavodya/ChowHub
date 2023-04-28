@@ -1,4 +1,4 @@
-import {Breadcrumb, Button, Card, Image} from "antd";
+import {Breadcrumb, Button, Card, Image, Space} from "antd";
 import Meta from "antd/es/card/Meta";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -44,42 +44,36 @@ function ShowUsers() {
     return (
 
         <div className="vvv">
-            <Breadcrumb
-                items={[
-                    {
-                        title: <a href="/home">Home</a>,
-                    },
-                    {
-                        title: <a href="/yourProf">See your Profile</a>
-                    },
-                    {
-                        title: <a href="/createPosts">Create Post</a>,
-                    },
-                    {
-                        title: <a href="/showAllUsers">Show All Users</a>,
-                    },
-                ]}
-                className='Nav-bar'/>
+            <Space direction='horizontal' className='Nav-bar'>
+                <a href="/home" className='anchor'>Home</a>
+                <a href="/yourProf" className='anchor'>See your Profile</a>
+                <a href="/createPosts" className='anchor'>Create Post</a>
+                <a href="/showAllUsers" className='anchor'>Show All Users</a>
+            </Space>
+            <div>
             {user.map((post, index) => (
+                <Space direction={"horizontal"} >
+                    <Card
+                        className="profile-card"
+                        key={post.id}
+                        style={{
+                            width: 500,
+                            height: 300,
+                        }}
 
-                <Card
-                    className="profile-card"
-                    key={post.id}
-                    style={{
-                        width: 1200,
-                        height: 300,
-                    }}
-
-                >
-                    <div className='flex-div' style={{ display: 'flex', alignItems: 'center' }}>
-                        {post.profileURL && <Image src={post.profileURL} style={{ width: 200, height: 150 }} />}
-                        <Meta title={post.name} className="instagram-name" style={{ marginLeft: '10px' }} />
-                        <Button onClick={() => handleFollow(post)} style={{ marginLeft: 'auto' }}>View profile</Button>
-                    </div>
+                    >
+                        <div className='flex-div' style={{ display: 'flex', alignItems: 'center' }}>
+                            {post.profileURL && <Image src={post.profileURL} style={{ width: 200, height: 150 }} />}
+                            <Meta title={post.name} className="instagram-name" style={{ marginLeft: '10px' }} />
+                            <Button onClick={() => handleFollow(post)} style={{ marginLeft: 'auto' }}>View profile</Button>
+                        </div>
 
 
-                </Card>
+                    </Card>
+                </Space>
+
             ))}
+            </div>
         </div>
     )
 
