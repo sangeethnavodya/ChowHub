@@ -1,4 +1,4 @@
-import {Breadcrumb, Button, Card} from "antd";
+import {Breadcrumb, Button, Card, Image} from "antd";
 import Meta from "antd/es/card/Meta";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -69,24 +69,15 @@ function ShowUsers() {
                         width: 1200,
                         height: 300,
                     }}
-                    cover={
-                        <>
-                            {post.profileURL && (
-                                <img
-                                    alt="example"
-                                    style={{
-                                        height: '100px',
-                                        width: '200px',
-                                        marginLeft: '500px'
-                                    }}
-                                    src={post.profileURL}
-                                />
-                            )}
-                        </>
-                    }
+
                 >
-                    <Meta title={post.name} className="instagram-name" />
-                    <Button onClick={() => handleFollow(post)}>View profile</Button>
+                    <div className='flex-div' style={{ display: 'flex', alignItems: 'center' }}>
+                        {post.profileURL && <Image src={post.profileURL} style={{ width: 200, height: 150 }} />}
+                        <Meta title={post.name} className="instagram-name" style={{ marginLeft: '10px' }} />
+                        <Button onClick={() => handleFollow(post)} style={{ marginLeft: 'auto' }}>View profile</Button>
+                    </div>
+
+
                 </Card>
             ))}
         </div>

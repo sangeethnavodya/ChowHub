@@ -4,42 +4,50 @@
     justify-content: center; /* Center the cards horizontally */
     margin-top: -20px; /* Add negative margin to counteract the margin-top of the cards */
     margin-left: 50px;
-  }
-  
-  .profile-card {
-    width: calc(33.33% - 10px); /* Calculate the width based on 3 cards per row with some spacing */
+}
+
+.profile-card {
+    width: 500px; /* Calculate the width based on 3 cards per row with some spacing */
     height: 300px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
     margin-top: 20px; /* Add some spacing between the cards */
-  }
-  
-  .profile-card:nth-child(3n+1) {
+
+}
+
+.profile-card:nth-child(3n+1) {
     margin-top: 0;
-  }
-  
-  .profile-card:nth-child(3n+2) {
+}
+
+.profile-card:nth-child(3n+2) {
     margin-top: 40px;
-  }
-  
-  .profile-card:hover {
+}
+
+.profile-card:hover {
     transform: translateY(-10px);
-  }
-  
-  .instagram-name {
-    margin-top: 10px;
+}
+
+.instagram-name {
+    margin-bottom: 80px;
     font-size: 18px;
     text-align: center;
-  }
-  
-  .profile-card img {
+    color: #0095f6;
+}
+
+.profile-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px 10px 0px 0px;
-  }
-  .vvv{
-  margin-left: 350px;
-  }
+
+}
+
+.vvv {
+    margin-left: 350px;
+
+}
+.vv{
+    background-color: #8F9C99;
+}
   

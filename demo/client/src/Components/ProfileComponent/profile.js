@@ -63,13 +63,13 @@ function Profile() {
                         title: 'Home',
                     },
                     {
-                        title: <a href="/seePosts">News Feed</a>,
+                        title: <a href="/home">News Feed</a>,
                     },
                     {
                         title: <a href="/showAllUsers">View Others</a>,
                     },
                 ]}
-            />
+            className='Nav-bar'/>
             <Card className='name-label'>
                 <h1>{details.data.name}'s Profile</h1>
             </Card>
