@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Row, Space } from "antd";
+import {Breadcrumb, Button, Row, Space} from "antd";
 import { useNavigate } from "react-router-dom";
 import SeePost from "../Post/ShowPost";
 
@@ -22,15 +22,11 @@ function HomePage() {
 
                     >Logout</Button>
                 </div>
-                <div>
-                    <Button type="primary" onClick={() => handleProfile()}>See your Profile</Button>
-                </div>
-                <div>
-                    <Button type="primary" onClick={() => { navigate('/createPosts') }}>Create Post</Button>
-                </div>
-                <div>
-                    <Button type="primary" onClick={() => { navigate('/showAllUsers') }}>Show All Users</Button>
-                </div>
+                <Space direction='horizontal' className='Nav-bar'>
+                    <a href="/yourProf" className='anchor'>See your Profile</a>
+                    <a href="/createPosts" className='anchor'>Create Post</a>
+                    <a href="/showAllUsers" className='anchor'>Show All Users</a>
+                </Space>
             </Row>
             <SeePost />
         </>

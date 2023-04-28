@@ -15,7 +15,7 @@ import ShowPostOther from './Components/User/ShowUserProfile';
 
 function App() {
   return (
-    <div>
+    <div className="vv">
       <Routes>
         <Route path='/home' element={<PrivateRoute element={<HomePage/>}/>} />
         <Route path='/seePosts' element={<PrivateRoute element={<ShowALLPost/>}/>}/>

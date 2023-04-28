@@ -1,4 +1,4 @@
-import { Button, Card } from "antd";
+import {Breadcrumb, Button, Card, Image, Space} from "antd";
 import Meta from "antd/es/card/Meta";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -44,28 +44,36 @@ function ShowUsers() {
     return (
 
         <div className="vvv">
+            <Space direction='horizontal' className='Nav-bar'>
+                <a href="/home" className='anchor'>Home</a>
+                <a href="/yourProf" className='anchor'>See your Profile</a>
+                <a href="/createPosts" className='anchor'>Create Post</a>
+                <a href="/showAllUsers" className='anchor'>Show All Users</a>
+            </Space>
+            <div>
             {user.map((post, index) => (
+                <Space direction={"horizontal"} >
+                    <Card
+                        className="profile-card"
+                        key={post.id}
+                        style={{
+                            width: 500,
+                            height: 300,
+                        }}
 
-                <Card
-                    className="profile-card"
-                    key={post.id}
-                    style={{
-                        width: 1200,
-                        height: 300
-                    }}
-                    cover={
-                        <>
-                            {post.profileURL && <img alt="example" style={{
-                                height: '100px',
-                                width: '200px'
-                            }} src={post.profileURL} />}
-                        </>
-                    }
-                >
-                    <Meta title={post.name} className="instagram-name" />
-                    <Button onClick={() => handleFollow(post)}>View profile</Button>
-                </Card>
+                    >
+                        <div className='flex-div' style={{ display: 'flex', alignItems: 'center' }}>
+                            {post.profileURL && <Image src={post.profileURL} style={{ width: 200, height: 150 }} />}
+                            <Meta title={post.name} className="instagram-name" style={{ marginLeft: '10px' }} />
+                            <Button onClick={() => handleFollow(post)} style={{ marginLeft: 'auto' }}>View profile</Button>
+                        </div>
+
+
+                    </Card>
+                </Space>
+
             ))}
+            </div>
         </div>
     )
 

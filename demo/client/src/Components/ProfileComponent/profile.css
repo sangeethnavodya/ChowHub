@@ -1,20 +1,23 @@
 .profile-pic {
     display: inline-block;
     margin-right: 20px;
-  }
-  
-  .upload-pro-widget {
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.upload-pro-widget {
     display: inline-block;
     margin-right: 20px;
-  }
-  
-  .name-label {
+}
+
+.name-label {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 40px;
-  }
-  
-  .upload-widget {
+}
+
+.upload-widget {
     background-color: #f1f1f1;
     border: none;
     color: black;
@@ -25,13 +28,13 @@
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .upload-widget:hover {
+}
+
+.upload-widget:hover {
     background-color: #ddd;
-  }
-  
-  .upload-button {
+}
+
+.upload-button {
     background-color: #1890ff;
     border: none;
     color: white;
@@ -42,9 +45,29 @@
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .upload-button:hover {
+
+}
+
+.upload-button:hover {
     background-color: #40a9ff;
-  }
+}
+
+.main-div-profile {
+    margin-left: 100px;
+}
+
+.upload-div {
+    margin-top: 30px;
+}
+
+.new-class-header {
+    color: white;
+    font-size: 30px;
+}
+
+.anchor {
+    color: white;
+    margin-left: 30px;
+    border-bottom-style: dot-dot-dash;
+}
   

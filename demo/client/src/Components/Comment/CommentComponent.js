@@ -10,6 +10,7 @@ function CommentComponent(props) {
         postid: props.data.id,
         userId: "",
         comment: "",
+        author:localStorage.getItem('name')
     })
     const handleSubmit = (event) => {
         event.preventDefault();

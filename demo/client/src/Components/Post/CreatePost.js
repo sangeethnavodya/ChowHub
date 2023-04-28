@@ -1,22 +1,23 @@
 import { PlusOutlined } from '@ant-design/icons';
 import '../Post/create.css'
 import {
-  Button,
-  Cascader,
-  Checkbox,
-  DatePicker,
-  Form,
-  Input,
-  InputNumber,
-  Radio,
-  Select,
-  Switch,
-  TreeSelect,
-  Upload,
+    Button, Card,
+    Cascader,
+    Checkbox,
+    DatePicker,
+    Form,
+    Input,
+    InputNumber,
+    Radio,
+    Select, Space,
+    Switch,
+    TreeSelect,
+    Upload,
 } from 'antd';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {Header} from "antd/es/layout/layout";
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
@@ -87,7 +88,7 @@ function CreatePost() {
     myWidget.open();
   }
   function handleOpenWidget3() {
-  
+
     var myWidget = window.cloudinary.createUploadWidget({
       cloudName: 'dugke0heo',
       uploadPreset: 'nxlpfvfq'
@@ -138,11 +139,11 @@ function CreatePost() {
 
 
   function handleCaption(event) {
-  
+
     setUser({...user,"caption":event.target.value})
 
   }
-   
+
   function handlePostId(e){
     setReact(prevState => {
       return {...prevState, "postId": e};
@@ -176,17 +177,18 @@ function CreatePost() {
       console.error(error);
     }
   }
-  
+
 
   return (
     <>
-      <h1 className='create-head'>Create A Post</h1>
-      <Checkbox
-        checked={componentDisabled}
-        onChange={(e) => setComponentDisabled(e.target.checked)}
-      >
-        Form disabled
-      </Checkbox>
+        <Space direction='horizontal' className='Nav-bar'>
+            <a href="/home" className='anchor'>News Feed</a>
+            <a href="/showAllUsers" className='anchor'>Show All Users</a>
+        </Space>
+      <Header className='new-class-header'>
+         <div>Create A Post</div>
+      </Header>
+
       <Form
         labelCol={{
           span: 4,
@@ -195,17 +197,17 @@ function CreatePost() {
           span: 14,
         }}
         layout="horizontal"
-        disabled={componentDisabled}
+
         style={{
           maxWidth: 600,
         }}
         className='form-post'
       >
-        <Form.Item label="Caption" onChange={handleCaption} name="caption">
+        <Form.Item label="Caption" onChange={handleCaption} name="caption" >
           <TextArea rows={4} />
         </Form.Item>
         <Form.Item label="Upload" valuePropName="fileList">
-          <Button className='upload-widget' onClick={() => handleOpenWidget()}>Upload picture</Button>
+          <Button className='upload-widget' onClick={() => handleOpenWidget()}>Upload picture </Button>
         </Form.Item>
         <Form.Item label="Upload" valuePropName="fileList">
           <Button className='upload-widget' onClick={() => handleOpenWidget1()}>Upload picture</Button>
@@ -220,8 +222,10 @@ function CreatePost() {
           <Button className='upload-widget' onClick={() => handleOpenWidget4()}>Upload picture</Button>
         </Form.Item>
 
-        <Button onClick={handleSubmit}>Create Post</Button>
-       
+        <Button onClick={handleSubmit} style={{
+            margin:"10px"
+        }}>Create Post</Button>
+
 
       </Form>
     </>

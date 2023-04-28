@@ -35,7 +35,7 @@ function Profile() {
         }
         fetchData()
     }, []);
-    
+
     useEffect(() => {
         setIsLoading(true)
         async function fetchData() {
