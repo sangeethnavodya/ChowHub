@@ -88,7 +88,7 @@ function CreatePost() {
     myWidget.open();
   }
   function handleOpenWidget3() {
-  
+
     var myWidget = window.cloudinary.createUploadWidget({
       cloudName: 'dugke0heo',
       uploadPreset: 'nxlpfvfq'
@@ -139,11 +139,11 @@ function CreatePost() {
 
 
   function handleCaption(event) {
-  
+
     setUser({...user,"caption":event.target.value})
 
   }
-   
+
   function handlePostId(e){
     setReact(prevState => {
       return {...prevState, "postId": e};
@@ -177,7 +177,7 @@ function CreatePost() {
       console.error(error);
     }
   }
-  
+
 
   return (
     <>
@@ -188,12 +188,7 @@ function CreatePost() {
       <Header className='new-class-header'>
          <div>Create A Post</div>
       </Header>
-      <Checkbox
-        checked={componentDisabled}
-        onChange={(e) => setComponentDisabled(e.target.checked)}
-      >
-        Form disabled
-      </Checkbox>
+
       <Form
         labelCol={{
           span: 4,
@@ -202,17 +197,17 @@ function CreatePost() {
           span: 14,
         }}
         layout="horizontal"
-        disabled={componentDisabled}
+
         style={{
           maxWidth: 600,
         }}
         className='form-post'
       >
-        <Form.Item label="Caption" onChange={handleCaption} name="caption">
+        <Form.Item label="Caption" onChange={handleCaption} name="caption" >
           <TextArea rows={4} />
         </Form.Item>
         <Form.Item label="Upload" valuePropName="fileList">
-          <Button className='upload-widget' onClick={() => handleOpenWidget()}>Upload picture</Button>
+          <Button className='upload-widget' onClick={() => handleOpenWidget()}>Upload picture </Button>
         </Form.Item>
         <Form.Item label="Upload" valuePropName="fileList">
           <Button className='upload-widget' onClick={() => handleOpenWidget1()}>Upload picture</Button>
@@ -230,7 +225,7 @@ function CreatePost() {
         <Button onClick={handleSubmit} style={{
             margin:"10px"
         }}>Create Post</Button>
-       
+
 
       </Form>
     </>
