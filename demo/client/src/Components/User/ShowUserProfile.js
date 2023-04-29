@@ -1,6 +1,6 @@
-import { Button, Card, Form } from 'antd';
+import {Button, Card, Form, Image, Space} from 'antd';
 import axios from 'axios'
-import react, { useEffect, useState } from 'react'
+import react, {useEffect, useState} from 'react'
 import '../ProfileComponent/profile.css'
 import ShowPostUser from '../ProfileComponent/ShowPostUser';
 import ShowOtherUser from './ShowOtherUser';
@@ -9,10 +9,13 @@ import ShowOtherUser from './ShowOtherUser';
 function Profile() {
     const [details, setdetails] = useState([])
     const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
     const [isUpload, setIsUpload] = useState(false)
     const [FollowBTN, setFollowBTN] = useState('Follow');
     const [isFollow, setIsFollow] = useState(false)
     const [needToInit, setneedToInit] = useState(false)
+
+    const [count, setCount] = useState([]);
 
     const [image, setImage] = useState({
         profileURL: "",
@@ -26,53 +29,67 @@ function Profile() {
                 console.log(user)
                 setIsLoading(false)
                 setdetails(user)
-                if (details.length>0) {
+                if (details.length > 0) {
                     if (user.data.profileURL !== null) {
                         setNot(true)
                     }
                 }
             });
         }
+
         fetchData()
     }, []);
 
     useEffect(() => {
-        setIsLoading(true)
+        async function getCount() {
+            await axios.get('http://localhost:8080/follow/getByUser/' + localStorage.getItem('otherId')).then(
+                u => {
+                    console.log(u.data)
+                    setCount(u.data)
+                }
+            )
+        }
+
+        getCount()
+    }, [])
+
+    useEffect(() => {
+
+
         async function fetchData() {
+            setIsLoading2(true)
             await axios.get('http://localhost:8080/follow/' + localStorage.getItem('userId') + "/" + localStorage.getItem('otherId')).then(
                 user => {
                     console.log(user)
                     if (Object.keys(user.data).length === 0) {
                         console.log("d")
-                        setIsLoading(false)
+                        setIsLoading2(false)
                         setFollowBTN("Follow")
                         setneedToInit(true)
                         setIsFollow(false)
-                    }
-                    else if (!user.data[0].isFollowed) {
+                    } else if (!user.data[0].isFollowed) {
                         setFollowBTN("Follow")
                         setneedToInit(false)
-                        setIsLoading(false)
+                        setIsLoading2(false)
                         setIsFollow(false)
 
-                    }
-                    else if (user.data[0].isFollowed) {
+                    } else if (user.data[0].isFollowed) {
                         setFollowBTN("Unfollow")
                         setneedToInit(false)
                         setIsFollow(true)
-                        setIsLoading(false)
-                    }
-                    else {
+                        setIsLoading2(false)
+                    } else {
                         setIsLoading(false)
                         setFollowBTN("Unfollow")
                         setneedToInit(false)
                         setIsFollow(true)
-                        setIsLoading(false)
+                        setIsLoading2(false)
                     }
 
                 }
             );
         }
+
         fetchData();
     }, []);
     const [Follow, setFollow] = useState({
@@ -85,47 +102,58 @@ function Profile() {
     if (isLoading) {
         return <div>Loading post details...</div>;
     }
+    if(isLoading2){
+        return <div>Loading post details...</div>;
+    }
+
     function handleFollow() {
+        window.location.reload()
         if (needToInit) {
             axios.post("http://localhost:8080/follow/upload", Follow)
             setneedToInit(false)
             setFollowBTN("Unfollow")
-        }
-        else if (!needToInit && isFollow) {
+        } else if (!needToInit && isFollow) {
             axios.put("http://localhost:8080/follow/" + localStorage.getItem('userId') + "/" + localStorage.getItem('otherId'))
             setFollowBTN("Follow")
-        }
-        else if (!needToInit && !isFollow) {
+        } else if (!needToInit && !isFollow) {
             axios.put("http://localhost:8080/follow/unfollow/" + localStorage.getItem('userId') + "/" + localStorage.getItem('otherId'))
             setFollowBTN("UnFollow")
         }
     }
 
 
-
-
-
-
-
     return (
 
         <div>
 
-            <Card className='profile-pic'>
-                <img
+            <Card className='profile-pic'
+            style={{
+                marginTop:"10px"
+            }}>
+
+                <Image
                     src={details.data.profileURL}
                     height='100px'
                     width='100px'
                     alt='Profile'
                 />
+
             </Card>
 
+                 <Card className='name-label'>
+                     <Space direction="horizontal">
+                     <h1>{details.data.name}'s Profile</h1>
+                     <Button onClick={() => handleFollow()}>{FollowBTN}</Button>
+                     <Card>
+                         {count.length}
+                     </Card>
+                     </Space>
+                 </Card>
+
+
+
             <Card className='name-label'>
-                <h1>{details.data.name}'s Profile</h1>
-                <Button onClick={() => handleFollow()}>{FollowBTN}</Button>
-            </Card>
-            <Card className='name-label'>
-                <ShowOtherUser />
+                <ShowOtherUser/>
             </Card>
         </div>
 

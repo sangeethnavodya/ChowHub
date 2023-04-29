@@ -15,4 +15,6 @@ public interface FollowRepository extends MongoRepository<Follow,String> {
 
     List<Follow> findAllByUseridAndIsFollowed(String userId,Boolean isFollowed);
 
+
+
 }
