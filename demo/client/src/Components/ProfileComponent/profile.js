@@ -84,8 +84,8 @@ function Profile() {
                     <Card className='profile-pic'>
                         <img
                             src=''
-                            height='100px'
-                            width='100px'
+                            height='150px'
+                            width='150px'
                             alt='Profile Placeholder'
                         />
                     </Card>
