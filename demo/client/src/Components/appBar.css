@@ -1,0 +1,29 @@
+.app-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    background-color: #5b84a9;
+    color: white;
+}
+
+.app-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.app-logout {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: all 0.2s ease;
+}
+
+.app-logout:hover {
+    background-color: white;
+    color: #1c1c1c;
+}

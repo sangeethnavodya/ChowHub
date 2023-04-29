@@ -4,6 +4,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import '../User/user.css'
 import { useNavigate } from "react-router";
+import AppBar from "../AppBar";
+import MenuBar from "../MenuBar";
 
 function ShowUsers() {
     const [postList, setPostList] = useState([]);
@@ -42,14 +44,11 @@ function ShowUsers() {
         })
     }
     return (
-
+        <>
+        <AppBar/>
+            <MenuBar/>
         <div className="vvv">
-            <Space direction='horizontal' className='Nav-bar'>
-                <a href="/home" className='anchor'>Home</a>
-                <a href="/yourProf" className='anchor'>See your Profile</a>
-                <a href="/createPosts" className='anchor'>Create Post</a>
-                <a href="/showAllUsers" className='anchor'>Show All Users</a>
-            </Space>
+
             <div>
             {user.map((post, index) => (
                 <Space direction={"horizontal"} >
@@ -75,6 +74,7 @@ function ShowUsers() {
             ))}
             </div>
         </div>
+        </>
     )
 
 }

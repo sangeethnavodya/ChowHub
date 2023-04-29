@@ -20,6 +20,19 @@ function CommentComponent(props) {
             axios.post('http://localhost:8080/comment/save', comment1)
                 .then(response => {
                     console.log(response.data);
+                    axios.post('http://localhost:8080/notifications', {
+                        "userId": props.data.userId,
+                        "message": localStorage.getItem('name') + " commented on your post",
+                        "seen": false
+                    })
+                        .then(response => {
+                            console.log(response.data);
+                        }
+                        )
+                        .catch(error => {
+                            console.error(error);
+                        }
+                        );
                 })
                 .catch(error => {
                     console.error(error);

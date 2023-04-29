@@ -5,6 +5,8 @@ import '../ProfileComponent/profile.css'
 import ShowPostUser from './ShowPostUser';
 import {Header} from "antd/es/layout/layout";
 import React from "react";
+import AppBar from "../AppBar";
+import MenuBar from "../MenuBar";
 
 function Profile() {
     const [details, setdetails] = useState([])
@@ -59,12 +61,10 @@ function Profile() {
     }
 
     return (
-
+        <>
+            <AppBar/>
+            <MenuBar/>
         <div className='main-div-profile'>
-            <Space direction='horizontal' className='Nav-bar'>
-                <a href="/home" className='anchor'>News Feed</a>
-                <a href="/showAllUsers" className='anchor'>Show All Users</a>
-            </Space>
             <Card className='name-label'>
                 <Header className='new-class-header'>{details.data.name}'s Profile</Header>
             </Card>
@@ -109,7 +109,7 @@ function Profile() {
                 <ShowPostUser/>
             </Card>
         </div>
-
+            </>
     )
 
 }

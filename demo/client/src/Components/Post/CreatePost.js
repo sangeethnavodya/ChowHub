@@ -18,6 +18,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {Header} from "antd/es/layout/layout";
+import AppBar from "../AppBar";
+import MenuBar from "../MenuBar";
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
@@ -181,13 +183,11 @@ function CreatePost() {
 
   return (
     <>
-        <Space direction='horizontal' className='Nav-bar'>
-            <a href="/home" className='anchor'>News Feed</a>
-            <a href="/showAllUsers" className='anchor'>Show All Users</a>
-        </Space>
-      <Header className='new-class-header'>
-         <div>Create A Post</div>
-      </Header>
+        <AppBar/>
+        <MenuBar/>
+      {/*<Header className='new-class-header'>*/}
+      {/*   <div>Create A Post</div>*/}
+      {/*</Header>*/}
 
       <Form
         labelCol={{

@@ -29,6 +29,22 @@ function ReactComponent(props) {
     fetchData();
   }, [props.data.id]);
 
+  function handleNotification() {
+    console.log("Notification");
+    axios.post(`http://localhost:8080/notifications`, {
+      "userId": props.data.userId,
+      "message": localStorage.getItem('name') + " reacted on your post",
+      "seen": false
+    })
+      .then(response => {
+        console.log(response);
+        // Handle successful response here
+      })
+      .catch(error => {
+        console.error(error);
+        // Handle error response here
+      });
+  }
   function handleHaha() {
     if (hahaFirst) {
       setHahaCount(prevCount => prevCount + 1);
@@ -36,6 +52,7 @@ function ReactComponent(props) {
       axios.put(`http://localhost:8080/react/${reactId}`, { hahaCount: hahaCount1 + 1 })
         .then(response => {
           console.log(response);
+          handleNotification();
           // Handle successful response here
         })
         .catch(error => {
@@ -48,6 +65,7 @@ function ReactComponent(props) {
       axios.put(`http://localhost:8080/react/${reactId}`, { hahaCount: hahaCount1 - 1 })
         .then(response => {
           console.log(response);
+          handleNotification();
           // Handle successful response here
         })
         .catch(error => {
