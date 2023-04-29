@@ -91,8 +91,8 @@ function Profile() {
                     </Card>
                 )}
                 <div className='upload-div'>
-                    <Form.Item label='Upload' valuePropName='fileList' className='upload-pro-widget'>
-                        <Button className='upload-widget' onClick={() => handleOpenWidget()}>
+                    <Form.Item  valuePropName='fileList' className='upload-pro-widget'>
+                        <Button  onClick={() => handleOpenWidget()}>
                             Upload Picture
                         </Button>
                     </Form.Item>
