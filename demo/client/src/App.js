@@ -22,9 +22,9 @@ function App() {
         <Route path='/createPosts' element={<PrivateRoute element={<CreatePost/>}/>}/>
         <Route path='/' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
-        <Route path='/yourProf' element={<Profile/>}/>
-        <Route path='/showAllUsers' element={<ShowUsers/>}/>
-        <Route path='/profileOther' element={<ShowPostOther/>}/>
+        <Route path='/yourProf' element={<PrivateRoute element={<Profile/>}/>}/>
+        <Route path='/showAllUsers' element={<PrivateRoute element={<ShowUsers/>}/>}/>
+        <Route path='/profileOther' element={<PrivateRoute element={<ShowPostOther/>}/>}/>
       </Routes>
     </div>
   );
