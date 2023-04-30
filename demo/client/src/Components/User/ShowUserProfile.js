@@ -142,7 +142,7 @@ function Profile() {
       <AppBar />
       <MenuBar />
       <Card className="profile-pic">
-        <img
+        <Image
           src={details.data.profileURL}
           height="100px"
           width="100px"

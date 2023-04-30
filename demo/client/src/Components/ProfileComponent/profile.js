@@ -82,7 +82,7 @@ function Profile() {
                 )}
                 {!not && (
                     <Card className='profile-pic'>
-                        <img
+                        <Image
                             src=''
                             height='150px'
                             width='150px'
