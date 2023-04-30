@@ -11,11 +11,13 @@ import PrivateRoute from './Components/login/PrivateRoute';
 import Profile from './Components/ProfileComponent/profile';
 import ShowUsers from './Components/User/ShowUsers';
 import ShowPostOther from './Components/User/ShowUserProfile';
+import image from './Components/User/bjpeg.jpeg';
+
 
 
 function App() {
   return (
-    <div className="vv">
+    <div className="vv" >
       <Routes>
         <Route path='/home' element={<PrivateRoute element={<HomePage/>}/>} />
         <Route path='/seePosts' element={<PrivateRoute element={<ShowALLPost/>}/>}/>

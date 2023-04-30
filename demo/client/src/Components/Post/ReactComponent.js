@@ -12,6 +12,7 @@ function ReactComponent(props) {
   const [sadCount1, setSadCount] = useState(0);
   const [heartCount1, setHeartCount] = useState(0);
   const [hahaFirst, setHahaFirst] = useState(true);
+  const [heartFirst,setHeartFirst]=useState(true)
 
   useEffect(() => {
     async function fetchData() {
@@ -24,6 +25,7 @@ function ReactComponent(props) {
       setSadCount(sadCount);
       setHeartCount(heartCount); // Assuming the angryCount represents heartCount in your case
       setReactId(id);
+      localStorage.setItem('isReact',false)
       setIsLoading(false);
     }
     fetchData();
@@ -46,6 +48,7 @@ function ReactComponent(props) {
       });
   }
   function handleHaha() {
+
     if (hahaFirst) {
       setHahaCount(prevCount => prevCount + 1);
       setHahaFirst(false);
@@ -75,9 +78,9 @@ function ReactComponent(props) {
     }
   }
   function handleHeart() {
-    if (hahaFirst) {
+    if (heartFirst) {
       setHeartCount(prevCount => prevCount + 1);
-      setHahaFirst(false);
+      setHeartFirst(false);
       axios.put(`http://localhost:8080/react/heart/${reactId}`, { heartCount: heartCount1 + 1 })
         .then(response => {
           console.log(response);
@@ -89,7 +92,7 @@ function ReactComponent(props) {
         });
     } else {
       setHeartCount(prevCount => prevCount - 1);
-      setHahaFirst(true);
+      setHeartFirst(true);
       axios.put(`http://localhost:8080/react/heart/${reactId}`, { heartCount: heartCount1 - 1 })
         .then(response => {
           console.log(response);
