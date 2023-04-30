@@ -7,6 +7,7 @@ import "../Post/post.css";
 import ReactComponent from "./ReactComponent";
 import CommentComponent from "../Comment/CommentComponent";
 import ShowComments from "../Comment/ShowComment";
+import MenuBar from "../MenuBar";
 
 function PostList() {
   const [postList, setPostList] = useState([]);

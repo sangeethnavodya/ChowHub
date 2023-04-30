@@ -1,0 +1,66 @@
+.ant-drawer-header {
+    background-color: #5b84a9;
+    color: #fff;
+}
+
+.ant-drawer-body {
+    padding: 0;
+}
+
+.ant-menu-inline .ant-menu-item,
+.ant-menu-inline .ant-menu-item:hover {
+    color: #000;
+}
+
+.ant-menu-inline .ant-menu-item-selected {
+    color: #1a1b1c;
+}
+
+.ant-menu-item-icon {
+    color: #000;
+}
+
+.ant-menu-submenu-arrow::after {
+    border-right-color: #d7d1d1;
+}
+
+.ant-menu-submenu-arrow::before {
+    border-bottom-color: #000;
+}
+
+.ant-menu-inline-collapsed > .ant-menu-item > span {
+    opacity: 0;
+}
+
+.ant-drawer-body .ant-list-item:hover {
+    background-color: #f0f0f0;
+}
+
+.ant-drawer-close-icon > svg > path {
+    stroke: #fff;
+}
+
+.ant-drawer-close:hover .ant-drawer-close-icon > svg > path {
+    stroke: #5b84a9;
+}
+
+.ant-menu-inline-collapsed > .ant-menu-item > a > .anticon,
+.ant-menu-inline-collapsed > .ant-menu-item > .anticon {
+    font-size: 20px;
+}
+
+.ant-menu-item .anticon {
+    margin-right: 12px;
+}
+
+.ant-menu-item-selected .anticon {
+    color: #5b84a9;
+}
+
+.ant-menu-item:hover .anticon {
+    color: #484e54;
+}
+
+.ant-menu-submenu .ant-menu-submenu-title:hover {
+    color: #5b84a9;
+}
