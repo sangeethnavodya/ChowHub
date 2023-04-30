@@ -14,6 +14,7 @@ function CommentComponent(props) {
     })
     const handleSubmit = (event) => {
         event.preventDefault();
+        window.location.reload()
         console.log(comment1)
         try {
             axios.post('http://localhost:8080/comment/save', comment1)
