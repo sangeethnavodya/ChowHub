@@ -24,4 +24,7 @@ public class CommentService {
         return commentRepository.findCommentByPostid(postId);
     }
 
+    public void DeleteComment(String id){
+        commentRepository.deleteById(id);
+    }
 }
