@@ -22,4 +22,9 @@ public class ReactHandlerService {
         List<ReactHandler> r=reactHandlerRepository.findByReactIdAndAndReactorIdAndPostId(reactId,reactorId,postId);
         return r;
     }
+
+    public List<ReactHandler> deleteReact(String reactId, String reactorId, String postId) {
+        List<ReactHandler> r=reactHandlerRepository.deleteByReactIdAndReactorIdAndPostId(reactId,reactorId,postId);
+        return r;
+    }
 }

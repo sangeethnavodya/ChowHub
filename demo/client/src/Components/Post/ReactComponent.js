@@ -62,7 +62,6 @@ function ReactComponent(props) {
 
     function handleHaha() {
         console.log("e")
-        if (hahaFirst) {
             setReactHandler({...reactHandle, "reactType": "Haha"})
             console.log(reactHandle)
 
@@ -96,30 +95,33 @@ function ReactComponent(props) {
                                 // Handle error response here
                             });
                     }
+                    else {
+                        setHahaCount(prevCount => prevCount - 1);
+                        setHahaFirst(true);
+                        axios.put(`http://localhost:8080/react/${reactId}`, {hahaCount: hahaCount1 - 1})
+                            .then(response => {
+                                console.log(response);
+                                handleNotification();
+                                // Handle successful response here
+                                const url = 'http://localhost:8080/rHandler/find/' + reactId + '/' + localStorage.getItem('userId') + '/' + props.data.id;
+                                axios.delete(url).then(
+                                    u=>{
+                                        console.log(u)
+                                    }
+                                )
+                            })
+                            .catch(error => {
+                                console.error(error);
+                                // Handle error response here
+                            });
+                    }
+
                 })
-                .catch(error => {
-                    console.log(error);
-                    // Handle error response here
-                });
         }
-    else {
-            setHahaCount(prevCount => prevCount - 1);
-            setHahaFirst(true);
-            axios.put(`http://localhost:8080/react/${reactId}`, {hahaCount: hahaCount1 - 1})
-                .then(response => {
-                    console.log(response);
-                    handleNotification();
-                    // Handle successful response here
-                })
-                .catch(error => {
-                    console.error(error);
-                    // Handle error response here
-                });
-        }
-    }
 
 
-    function handleHeart() {
+
+        function handleHeart() {
         if (heartFirst) {
             setHeartCount(prevCount => prevCount + 1);
             setHeartFirst(false);

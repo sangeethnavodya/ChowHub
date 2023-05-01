@@ -25,4 +25,10 @@ public class ReactHandlerController {
 
         return reactHandlerService.findReactor(reactId,reactorId,postId);
     }
+
+    @DeleteMapping(value = "/find/{reactId}/{reactorId}/{postId}")
+    public List<ReactHandler> delete(@PathVariable String reactId, @PathVariable String reactorId, @PathVariable String postId){
+
+        return reactHandlerService.deleteReact(reactId,reactorId,postId);
+    }
 }

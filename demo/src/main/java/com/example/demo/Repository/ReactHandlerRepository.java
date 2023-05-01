@@ -9,4 +9,6 @@ import java.util.List;
 public interface ReactHandlerRepository extends MongoRepository<ReactHandler,String> {
 
     public List<ReactHandler> findByReactIdAndAndReactorIdAndPostId(String reactId,String reactorId,String postId);
+    public List<ReactHandler> deleteByReactIdAndReactorIdAndPostId(String reactId,String reactorId,String postId);
+
 }
