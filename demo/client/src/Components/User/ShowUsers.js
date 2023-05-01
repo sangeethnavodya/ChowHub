@@ -13,6 +13,9 @@ function ShowUsers() {
     const [followe,setFollowDetails]=useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState('');
+    const filteredUsers = user.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
+
     function handleFollow(post) {
         localStorage.setItem('otherId', post.id);
         localStorage.setItem('otherName', post.name);
@@ -45,38 +48,38 @@ function ShowUsers() {
     }
     return (
         <>
-        <AppBar/>
+            <AppBar/>
             <MenuBar/>
-        <div className="vvv">
+            <div className="vvv">
+                <div>
+                    <input type="text" className="search-input" placeholder="Search users" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                </div>
 
-            <div>
-            {user.map((post, index) => (
-                <Space direction={"horizontal"} >
-                    <Card
-                        className="profile-card"
-                        key={post.id}
-                        style={{
-                            width: 500,
-                            height: 300,
-                        }}
+                <div>
+                    {filteredUsers.map((post, index) => (
+                        <Space direction={"horizontal"} >
+                            <Card
+                                className="profile-card"
+                                key={post.id}
+                                style={{
+                                    width: 500,
+                                    height: 300,
+                                }}
+                            >
+                                <div className='flex-div' style={{ display: 'flex', alignItems: 'center' }}>
+                                    {post.profileURL && <Image src={post.profileURL} style={{ width: 200, height: 150 }} />}
+                                    <Meta title={post.name} className="instagram-name" style={{ marginLeft: '10px' }} />
+                                    <Button onClick={() => handleFollow(post)} style={{ marginLeft: 'auto' }}>View profile</Button>
+                                </div>
+                            </Card>
+                        </Space>
+                    ))}
 
-                    >
-                        <div className='flex-div' style={{ display: 'flex', alignItems: 'center' }}>
-                            {post.profileURL && <Image src={post.profileURL} style={{ width: 200, height: 150 }} />}
-                            <Meta title={post.name} className="instagram-name" style={{ marginLeft: '10px' }} />
-                            <Button onClick={() => handleFollow(post)} style={{ marginLeft: 'auto' }}>View profile</Button>
-                        </div>
-
-
-                    </Card>
-                </Space>
-
-            ))}
+                </div>
             </div>
-        </div>
         </>
     )
 
 }
 
-export default ShowUsers
+export default ShowUsers;
