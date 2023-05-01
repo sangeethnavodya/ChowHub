@@ -1,5 +1,6 @@
 package com.example.demo.Controllers;
 
+import com.example.demo.Model.Comment;
 import com.example.demo.Model.Post;
 import com.example.demo.Model.React;
 import com.example.demo.Service.PostService;
@@ -37,6 +38,15 @@ public class PostController {
     public void delete(@PathVariable String id){
         System.out.println(id);
         postService.DeleteComment(id);
+    }
+
+    @PutMapping(value = "/{id}")
+    public void updateResource(@PathVariable String id, @RequestBody Post post) {
+        // Update the resource with the specified ID using the data in the request body
+        // ...
+        postService.updateCaption(id, post);
+        // Return a success response
+        // ...
     }
 
 }
