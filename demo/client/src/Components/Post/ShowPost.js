@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card } from "antd";
+import {Button, Card} from "antd";
 import Meta from "antd/es/card/Meta";
 
 import "../Post/post.css";
@@ -61,6 +61,11 @@ function PostList() {
     return <div>Loading post details...</div>;
   }
 
+  function deleteThisPost(e){
+    axios.delete('http://localhost:8080/post/'+e);
+    window.location.reload()
+  }
+
   return (
       <>
         <div className={`popup-container ${showPopup ? "active" : ""}`} onClick={handlePopupClose}>
@@ -116,6 +121,11 @@ function PostList() {
                 <ReactComponent data={post} />
                 <ShowComments data={post} />
                 <CommentComponent data={post} />
+                {post.userId==localStorage.getItem('userId')&&
+                <Button style={{
+                  marginTop:"10px",
+                  marginLeft:"20px"
+                }} onClick={()=>deleteThisPost(post.id)}>Delete this post</Button>}
               </Card>
           ))}
         </div>

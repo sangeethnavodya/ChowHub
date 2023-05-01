@@ -33,5 +33,10 @@ public class PostController {
         return postService.getByPost(userId);
     }
 
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable String id){
+        System.out.println(id);
+        postService.DeleteComment(id);
+    }
 
 }

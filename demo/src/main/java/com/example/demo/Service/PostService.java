@@ -26,4 +26,7 @@ public class PostService {
     public List<Post> getByPost(String userId){return postRepository.findAllByUserId(userId);}
 
 
+    public void DeleteComment(String id) {
+        postRepository.deleteById(id);
+    }
 }
