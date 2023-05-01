@@ -5,6 +5,7 @@ import ReactComponent from "../Post/ReactComponent";
 import ShowComments from "../Comment/ShowComment";
 import CommentComponent from "../Comment/CommentComponent";
 import {Breadcrumb, Card} from "antd";
+import ShowCommentsMY from "../Comment/ShowMyProfileComment";
 
 function ShowPostUser() {
     const [postList, setPostList] = useState([]);
@@ -46,7 +47,7 @@ function ShowPostUser() {
                     <Meta title={post.userName} />
                     <Meta title={post.caption} />
                     <ReactComponent data={post} />
-                    <ShowComments data={post} />
+                    <ShowCommentsMY data={post} />
                     <CommentComponent data={post} />
 
                 </Card>

@@ -149,6 +149,25 @@ function Profile() {
           alt="Profile"
         />
       </Card>
+      <Card style={{display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        color:"black",
+        fontSize:"20px",
+        fontFamily:"sans-serif",
+        marginTop:"20px"
+      }}>
+        <div style={{display:"flex",
+          justifyContent:"center",
+          alignItems:"center",
+          color:"black",
+          fontSize:"20px",
+          fontFamily:"sans-serif",
+          marginTop:"20px"
+        }}>Bio</div>
+
+        {}<div>{details.data.bio}</div>
+      </Card>
 
       <Card className="name-label">
         <Space direction="horizontal">

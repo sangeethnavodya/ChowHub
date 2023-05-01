@@ -52,6 +52,16 @@ public class UserService {
             throw new RuntimeException("User not found with id: " + id);
         }
     }
+    public void updateBio(String id, User user) {
+        Optional<User> existingUser = userRepository.findById(id);
+        if (existingUser.isPresent()) {
+            User updatedUser = existingUser.get();
+            updatedUser.setBio((user.getBio()));
+            userRepository.save(updatedUser);
+        } else {
+            throw new RuntimeException("User not found with id: " + id);
+        }
+    }
 
     public List<User> getAllUsers(){
         return userRepository.findAll();

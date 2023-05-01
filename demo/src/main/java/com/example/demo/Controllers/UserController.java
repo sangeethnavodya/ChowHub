@@ -34,6 +34,11 @@ public class UserController {
     public void updateProfile(@PathVariable("id") String id, @RequestBody User user) {
         userService.updateProfile(id, user);
     }
+    @PutMapping("/bio/{id}")
+    public void updateBio(@PathVariable("id") String id, @RequestBody User user) {
+        userService.updateBio(id, user);
+    }
+
 
     @GetMapping("")
     public List<User> getAll(){
