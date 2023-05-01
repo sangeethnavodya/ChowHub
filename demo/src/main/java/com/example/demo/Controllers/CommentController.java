@@ -41,4 +41,13 @@ public class CommentController {
         System.out.println(id);
         commentService.DeleteComment(id);
     }
+
+    @PutMapping(value = "/{id}")
+    public void updateResource(@PathVariable String id, @RequestBody Comment comment) {
+        // Update the resource with the specified ID using the data in the request body
+        // ...
+        commentService.updateCaption(id, comment);
+        // Return a success response
+        // ...
+    }
 }
