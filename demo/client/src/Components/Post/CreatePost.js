@@ -205,58 +205,69 @@ function CreatePost() {
                 labelCol={{span: 4}}
                 wrapperCol={{span: 14}}
                 layout="horizontal"
-                className="form-post"
             >
                 <Form.Item
-                    label="Caption"
-                    onChange={handleCaption}
-                    name="caption"
+                    style={{
+                        width: "1200px",
+                        marginLeft: "300px",
+                        marginTop: "20px",
+                        marginBottom: "20px",
 
+                        justifyContent:"center",
+                        alignItems:"center"
+
+                    }}
+                    onChange={handleCaption}
+                    placeholder="input new Caption here"
                 >
                     <TextArea rows={4} placeholder="Enter a caption"/>
                 </Form.Item>
 
-                <Space direction="horizontal" style={{width: "900px", marginLeft: "50px"}}>
-                    <div>
-                        <Button onClick={() => handleOpenWidget()}>
-                            Upload picture 1
-                        </Button>
-                        {isImage1 && <div style={{color: "white"}}> uploaded</div>}
-                    </div>
-                    <div>
-                        {isImage1 && <Button onClick={() => handleOpenWidget1()}>
-                            Upload picture 2
-                            {isImage2 && <div style={{color: "white"}}> uploaded</div>}
-                        </Button>}
-                    </div>
 
-                    <div>
-                        {isImage2 && <Button onClick={() => handleOpenWidget2()}>
-                            Upload picture 3
-                            {isImage3 && <div style={{color: "white"}}> uploaded</div>}
-                        </Button>}
-                    </div>
+                <Space direction="horizontal" style={{width: "900px", marginLeft: "300px"}}>
+                    <Space direction="horizontal">
+                        <div style={{height: "60px"}}>
+                            <Button onClick={() => handleOpenWidget()}>
+                                Upload picture 1
+                            </Button>
+                            {isImage1 && <div style={{color: "red"}}> uploaded</div>}
+                        </div>
+                        <div style={{height: "60px"}}>
+                            {isImage1 && <Button onClick={() => handleOpenWidget1()}>
+                                Upload picture 2
+                                {isImage2 && <div style={{color: "red"}}> uploaded</div>}
+                            </Button>}
+                        </div>
 
-                    <div>
-                        {isImage3 && <Button onClick={() => handleOpenWidget3()}>
-                            Upload picture 4
-                            {isImage4 && <div style={{color: "white"}}> uploaded</div>}
-                        </Button>}
-                    </div>
+                        <div style={{height: "60px"}}>
+                            {isImage2 && <Button onClick={() => handleOpenWidget2()}>
+                                Upload picture 3
+                                {isImage3 && <div style={{color: "red"}}> uploaded</div>}
+                            </Button>}
+                        </div>
 
-                    <div>
-                        {isImage4 && <Button onClick={() => handleOpenWidget4()}>
-                            Upload picture 4
-                            {isImage5 && <div style={{color: "white"}}> uploaded</div>}
-                        </Button>}
-                    </div>
+                        <div style={{height: "60px"}}>
+                            {isImage3 && <Button onClick={() => handleOpenWidget3()}>
+                                Upload picture 4
+                                {isImage4 && <div style={{color: "red"}}> uploaded</div>}
+                            </Button>}
+                        </div>
 
-
+                        <div style={{height: "60px"}}>
+                            {isImage4 && <Button onClick={() => handleOpenWidget4()}>
+                                Upload picture 4
+                                {isImage5 && <div style={{color: "red"}}> uploaded</div>}
+                            </Button>}
+                        </div>
+                    </Space>
 
 
                 </Space>
 
-                <Button onClick={handleSubmit} className="create-post-button">
+                <Button onClick={handleSubmit} style={{
+                    marginLeft: "10px",
+                    marginTop: "20px"
+                }}>
                     Create Post
                 </Button>
             </Form>
