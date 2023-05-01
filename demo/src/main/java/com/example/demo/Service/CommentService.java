@@ -39,6 +39,6 @@ public class CommentService {
             commentRepository.save(updatedUser);
         } else {
             throw new RuntimeException("User not found with id: " + id);
-        }
+        } boolean
     }
 }
