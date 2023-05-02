@@ -12,7 +12,9 @@ function ReactComponent(props) {
   const [sadCount1, setSadCount] = useState(0);
   const [heartCount1, setHeartCount] = useState(0);
   const [hahaFirst, setHahaFirst] = useState(true);
-  const [heartFirst,setHeartFirst]=useState(true)
+  const [heartFirst,setHeartFirst]=useState(true);
+  const [beforeHaha,setBeforHaha]=useState(true)
+  const [beforeHeart,setBeforHeart]=useState(true)
 
   useEffect(() => {
     async function fetchData() {
@@ -57,6 +59,7 @@ function ReactComponent(props) {
           console.log(response);
           handleNotification();
           // Handle successful response here
+          setBeforHeart(false);
         })
         .catch(error => {
           console.error(error);
@@ -70,6 +73,7 @@ function ReactComponent(props) {
           console.log(response);
           handleNotification();
           // Handle successful response here
+          setBeforHeart(true);
         })
         .catch(error => {
           console.error(error);
@@ -85,6 +89,7 @@ function ReactComponent(props) {
         .then(response => {
           console.log(response);
           // Handle successful response here
+          setBeforHaha(false)
         })
         .catch(error => {
           console.error(error);
@@ -97,6 +102,7 @@ function ReactComponent(props) {
         .then(response => {
           console.log(response);
           // Handle successful response here
+          setBeforHaha(true)
         })
         .catch(error => {
           console.error(error);
@@ -112,14 +118,18 @@ function ReactComponent(props) {
   return (
     <div>
       <div className="main-react">
+        {beforeHaha&&
         <div className="main-haha">
-        <SmileOutlined className="emoji-haha" onClick={handleHaha} />
+
+        <SmileOutlined className="emoji-haha" onClick={handleHaha}/>
         <div className="reactCount" >{hahaCount1}</div>
-        </div>
+        </div>}
+        {beforeHeart&&
         <div className="main-haha">
-        <HeartOutlined className="emoji-wow" onClick={handleHeart}/>
+          {beforeHeart&&
+        <HeartOutlined className="emoji-wow" onClick={handleHeart}/>}
         <div className="reactCount" >{heartCount1}</div>
-        </div>
+        </div>}
         {/* <StarOutlined className="emoji-like" />
         <MehOutlined className="emoji-sad" /> */}
       </div>
