@@ -120,7 +120,6 @@ function ReactComponent(props) {
       <div className="main-react">
         {beforeHaha&&
         <div className="main-haha">
-
         <SmileOutlined className="emoji-haha" onClick={handleHaha}/>
         <div className="reactCount" >{hahaCount1}</div>
         </div>}
