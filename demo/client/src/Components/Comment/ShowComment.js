@@ -6,16 +6,17 @@ import './comment.css'
 import UCommentComponent from "./update";
 
 function ShowComments(props) {
-
+    //postEkeMekaCallkrlAthi
     const [comment1, setComment1] = useState([])
     const [enableDelete,setDelete]=useState([])
     const [enableU,setEnableU]=useState(false)
+    const [setU,setSetU]=useState(true)
     useEffect(() => {
         async function fetchData() {
-
+           //databaseCallToGetExistingComments
             const response = await axios.get(`http://localhost:8080/comment/${props.data.id}`);
             console.log(response.data);
-
+            //StoreValues
             setComment1(response.data)
         }
 
@@ -28,6 +29,7 @@ function ShowComments(props) {
     }
     function handleUpdate(){
        setEnableU(true)
+        setSetU(false)
     }
 
     return (
@@ -44,23 +46,36 @@ function ShowComments(props) {
                                 {post.comment && <div style={{
                                     margin:"10px"
                                 }}>{post.comment}</div>}
-                                {post.author==localStorage.getItem('name')&&<div>
+                                <div>
+                                {post.author==localStorage.getItem('name')&&<div
+                                style={{
+                                    height:"55px"
+                                }}>
                                     <Space direction='horizontal'>
                                         <Button style={{
                                             display:"flex",
                                             justifyContent:"center",
                                             alignItems:"center",
-                                            marginLeft:"50px"
+                                            marginLeft:"50px",
+                                            color:'red',
+                                            marginTop:"30px"
                                         }} onClick={()=>handleDelete(post.id)}>Delete</Button>
-                                        <Button style={{
-                                            display:"flex",
-                                            justifyContent:"center",
-                                            alignItems:"center",
-                                            marginLeft:"50px"
-                                        }} onClick={()=>handleUpdate(post.id)}>Update</Button>
-                                        {enableU&&<UCommentComponent data={post}/> }
+                                        {setU&&
+                                            <div>
+                                                <Button style={{
+                                                    display:"flex",
+                                                    justifyContent:"center",
+                                                    alignItems:"center",
+                                                    marginLeft:"50px",
+                                                    marginTop:"30px"
+                                                }} onClick={()=>handleUpdate(post.id)}>Update</Button>
+                                            </div>
+                                        }
+                                        {enableU&&<UCommentComponent data={post}/>
+                                        }
                                     </Space>
                                 </div>}
+                                </div>
                             </Space>
 
                         </>

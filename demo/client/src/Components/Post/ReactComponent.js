@@ -4,18 +4,19 @@ import axios from "axios";
 import '../Post/react.css'
 
 function ReactComponent(props) {
+  //initialize
   const [isLoading, setIsLoading] = useState(false);
   const [reactId, setReactId] = useState('');
   const [react, setReact] = useState([]);
   const [hahaCount1, setHahaCount] = useState(0);
-  const [wowCount1, setWowCount] = useState(0);
-  const [sadCount1, setSadCount] = useState(0);
+  // const [wowCount1, setWowCount] = useState(0);
+  // const [sadCount1, setSadCount] = useState(0);
   const [heartCount1, setHeartCount] = useState(0);
   const [hahaFirst, setHahaFirst] = useState(true);
   const [heartFirst,setHeartFirst]=useState(true);
   const [beforeHaha,setBeforHaha]=useState(true)
   const [beforeHeart,setBeforHeart]=useState(true)
-
+  //gettingReactCount
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
@@ -23,8 +24,7 @@ function ReactComponent(props) {
       console.log(response.data);
       const { hahaCount, heartCount, sadCount, wowCount, id } = response.data[0];
       setHahaCount(hahaCount);
-      setWowCount(wowCount);
-      setSadCount(sadCount);
+
       setHeartCount(heartCount); // Assuming the angryCount represents heartCount in your case
       setReactId(id);
       localStorage.setItem('isReact',false)
@@ -54,6 +54,7 @@ function ReactComponent(props) {
     if (hahaFirst) {
       setHahaCount(prevCount => prevCount + 1);
       setHahaFirst(false);
+      //updateHaha
       axios.put(`http://localhost:8080/react/${reactId}`, { hahaCount: hahaCount1 + 1 })
         .then(response => {
           console.log(response);
@@ -68,6 +69,7 @@ function ReactComponent(props) {
     } else {
       setHahaCount(prevCount => prevCount - 1);
       setHahaFirst(true);
+      //updateHeart
       axios.put(`http://localhost:8080/react/${reactId}`, { hahaCount: hahaCount1 - 1 })
         .then(response => {
           console.log(response);
@@ -97,6 +99,7 @@ function ReactComponent(props) {
         });
     } else {
       setHeartCount(prevCount => prevCount - 1);
+      //toSHowHeartOnly
       setHeartFirst(true);
       axios.put(`http://localhost:8080/react/heart/${reactId}`, { heartCount: heartCount1 - 1 })
         .then(response => {
@@ -118,6 +121,7 @@ function ReactComponent(props) {
   return (
     <div>
       <div className="main-react">
+        {/*hahaPopup*/}
         {beforeHaha&&
         <div className="main-haha">
         <SmileOutlined className="emoji-haha" onClick={handleHaha}/>
@@ -132,10 +136,6 @@ function ReactComponent(props) {
         {/* <StarOutlined className="emoji-like" />
         <MehOutlined className="emoji-sad" /> */}
       </div>
-      
-
-
-    
     </div>
   );
 }

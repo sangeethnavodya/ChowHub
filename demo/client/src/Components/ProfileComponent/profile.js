@@ -137,12 +137,16 @@ function Profile() {
             </Space>
 
             <Space style={{
-                backgroundColor: "white",
                 padding: "40px",
                 marginLeft: "30px",
+                marginBottom:"60px",
+                borderRadius:"20px",
+                backgroundColor:"#eaeae0"
+
 
             }}>
-                <div>
+                <div >
+
                     {
                         !bnot&&
                         <div>
@@ -162,7 +166,7 @@ function Profile() {
                                 marginTop:"30px",
                                 display:"flex",
                                 justifyContent:"center",
-                                alignItems:"center"
+                                alignItems:"center",
                             }}>Update Bio</Button>
                         </div>
 
@@ -177,12 +181,17 @@ function Profile() {
                                 name="caption"
                                 style={{
                                     width:"700px",
+                                    marginBottom:"50px",
+                                    borderRadius:"30px",
+
 
                                 }}
                             >
                                 <TextArea rows={2} placeholder="Enter a Bio"/>
                             </Form.Item>
-                            <Button onClick={() => handleBio()} >Add a Bio</Button>
+                            <Button onClick={() => handleBio()} style={{
+                                marginLeft:"600px"
+                            }}>Add a Bio</Button>
                         </div>
 
                 }

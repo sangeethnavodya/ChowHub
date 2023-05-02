@@ -22,9 +22,11 @@ function PostList() {
 
 
     useEffect(() => {
+        //gettingBackEnd
         async function fetchData() {
             setIsLoading(true);
             const response = await axios.get("http://localhost:8080/post/get");
+            //storeData
             setPostList(response.data);
             setIsLoading(false);
         }
@@ -32,6 +34,7 @@ function PostList() {
         fetchData();
     }, []);
 
+    //previewPhoto
     const handleImageClick = (src) => {
         const img = new Image();
 
@@ -61,13 +64,16 @@ function PostList() {
         document.body.classList.remove("popup-open");
     };
 
+    //loadingPost
     if (isLoading) {
         return <div>Loading post details...</div>;
     }
 
+    //deletePost
     function deleteThisPost(e) {
         axios.delete('http://localhost:8080/post/' + e);
         window.location.reload()
+        alert("Are you sure You want to delete")
     }
 
     function HandlUpdateThisPost(e) {
@@ -85,6 +91,7 @@ function PostList() {
             </div>
 
             <div className="post-list-container">
+                {/*postLoopToCard*/}
                 {postList.map((post, index) => (
                     <Card className="post-card" key={post.id}>
                         <div className="image-grid">
@@ -126,14 +133,16 @@ function PostList() {
                         </div>
                         <Meta title={post.userName}/>
                         <Meta title={post.caption}/>
+                        {/*ReactCountCall*/}
                         <ReactComponent data={post}/>
+                        {/*CommentCall*/}
                         <ShowComments data={post}/>
+                        {/*CommentInit*/}
                         <CommentComponent data={post}/>
                         {post.userId == localStorage.getItem('userId') &&
                             <Space direction='vertical'>
-
-
                                 <Space direction='horizontal'>
+                                    {/* onClickForDelete*/}
                                     <Button style={{
                                         marginTop: "10px",
                                         marginLeft: "20px"
@@ -142,8 +151,8 @@ function PostList() {
                                         marginTop: "10px",
                                         marginLeft: "20px"
                                     }} onClick={() => HandlUpdateThisPost(post.id)}>Update this post</Button>
-
                                 </Space>
+                                {/*UpdatethisPostForm*/}
                               {enableU&&
                                 <Space>
                                 <UCreatePost data={post.id}/>

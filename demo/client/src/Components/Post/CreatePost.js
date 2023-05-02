@@ -1,5 +1,6 @@
 import {PlusOutlined} from '@ant-design/icons';
 import '../Post/create.css'
+//import from antDesign
 import {
     Button, Card,
     Cascader,
@@ -14,8 +15,11 @@ import {
     TreeSelect,
     Upload,
 } from 'antd';
+//variable store =UseState
 import React, {useState} from 'react';
+//axios back end communication
 import axios from 'axios';
+//page navigation
 import {useNavigate} from 'react-router-dom';
 import {Header} from "antd/es/layout/layout";
 import AppBar from "../AppBar";
@@ -25,8 +29,11 @@ import Background from "./background";
 const {RangePicker} = DatePicker;
 const {TextArea} = Input;
 
+//post Caption
+
 
 function CreatePost() {
+    //declare vari
     const navigate = useNavigate()
     const [image1, setImage1] = useState('')
     const [isImage1, setIsImage1] = useState(false)
@@ -114,7 +121,7 @@ function CreatePost() {
         )
         myWidget.open();
     }
-
+    //widgetForImageUploading
     function handleOpenWidget4() {
         var myWidget = window.cloudinary.createUploadWidget({
                 cloudName: 'dugke0heo',
@@ -131,6 +138,7 @@ function CreatePost() {
         myWidget.open();
     }
 
+    //creatObjectToBackEnd
     const [user, setUser] = useState({
         image1: "",
         image2: "",
@@ -141,7 +149,7 @@ function CreatePost() {
         userName: localStorage.getItem('name'),
         caption: ""
     })
-
+//reactCountObject
     const [react, setReact] = useState({
         postId: "",
         hahaCount: "",
@@ -168,6 +176,7 @@ function CreatePost() {
         event.preventDefault();
         console.log(user)
         try {
+            //Todatabase
             axios.post('http://localhost:8080/post/upload', user)
                 .then(response => {
                     console.log(response.data);
@@ -200,61 +209,58 @@ function CreatePost() {
             {/*<Header className='new-class-header'>*/}
             {/*   <div>Create A Post</div>*/}
             {/*</Header>*/}
-
+            {/*creatPost*/}
             <Form
                 labelCol={{span: 4}}
                 wrapperCol={{span: 14}}
                 layout="horizontal"
             >
-                <Form.Item
-                    style={{
-                        width: "1200px",
-                        marginLeft: "300px",
-                        marginTop: "20px",
-                        marginBottom: "20px",
-
-                        justifyContent:"center",
-                        alignItems:"center"
-
-                    }}
-                    onChange={handleCaption}
-                    placeholder="input new Caption here"
-                >
-                    <TextArea rows={4} placeholder="Enter a caption"/>
-                </Form.Item>
-
 
                 <Space direction="horizontal" style={{width: "900px", marginLeft: "300px"}}>
-                    <Space direction="horizontal">
+                    <Space direction="horizontal"
+                           style={{marginTop: "70px"}}>
                         <div style={{height: "60px"}}>
-                            <Button onClick={() => handleOpenWidget()}>
+                            <Button onClick={() => handleOpenWidget()} style={{
+                                borderRadius: "20px"
+                            }}>
                                 Upload picture 1
                             </Button>
-                            {isImage1 && <div style={{color: "red"}}> uploaded</div>}
+                            {isImage1 && <div style={{color: "red"}} style={{
+                                borderRadius: "20px"
+                            }}> uploaded</div>}
                         </div>
                         <div style={{height: "60px"}}>
-                            {isImage1 && <Button onClick={() => handleOpenWidget1()}>
+                            {isImage1 && <Button onClick={() => handleOpenWidget1()} style={{
+                                borderRadius: "20px"
+                            }}>
                                 Upload picture 2
                                 {isImage2 && <div style={{color: "red"}}> uploaded</div>}
                             </Button>}
                         </div>
 
                         <div style={{height: "60px"}}>
-                            {isImage2 && <Button onClick={() => handleOpenWidget2()}>
+                            {isImage2 && <Button onClick={() => handleOpenWidget2()} style={{
+                                borderRadius: "20px"
+                            }}>
                                 Upload picture 3
                                 {isImage3 && <div style={{color: "red"}}> uploaded</div>}
                             </Button>}
                         </div>
 
                         <div style={{height: "60px"}}>
-                            {isImage3 && <Button onClick={() => handleOpenWidget3()}>
+                            {isImage3 && <Button onClick={() => handleOpenWidget3()} style={{
+                                borderRadius: "20px"
+                            }}>
                                 Upload picture 4
                                 {isImage4 && <div style={{color: "red"}}> uploaded</div>}
                             </Button>}
                         </div>
 
                         <div style={{height: "60px"}}>
-                            {isImage4 && <Button onClick={() => handleOpenWidget4()}>
+                            {isImage4 && <Button onClick={() => handleOpenWidget4()}
+                                                 style={{
+                                                     borderRadius: "20px"
+                                                 }}>
                                 Upload picture 4
                                 {isImage5 && <div style={{color: "red"}}> uploaded</div>}
                             </Button>}
@@ -263,10 +269,26 @@ function CreatePost() {
 
 
                 </Space>
+                <Form.Item
+                    style={{
+                        width: "1200px",
+                        marginLeft: "300px",
+                        marginTop: "20px",
+                        marginBottom: "20px",
+                        justifyContent: "center",
+                        alignItems: "center"
+
+                    }}
+                    onChange={handleCaption}
+                    placeholder="input new Caption here"
+                >
+                    <TextArea rows={4} placeholder="Enter a caption"/>
+                </Form.Item>
 
                 <Button onClick={handleSubmit} style={{
-                    marginLeft: "10px",
-                    marginTop: "20px"
+                    marginLeft: "900px",
+                    marginTop: "20px",
+                    borderRadius: "20px"
                 }}>
                     Create Post
                 </Button>

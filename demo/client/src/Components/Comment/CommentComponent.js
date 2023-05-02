@@ -17,6 +17,7 @@ function CommentComponent(props) {
         window.location.reload()
         console.log(comment1)
         try {
+            //backEndApi
             axios.post('http://localhost:8080/comment/save', comment1)
                 .then(response => {
                     console.log(response.data);
@@ -52,7 +53,7 @@ function CommentComponent(props) {
     return (
         <div>
             <Input placeholder="Enter Your Comment" className="comment-input" onChange={handleCaption} />
-            <Button className="comment-button" onClick={handleSubmit}>Comment</Button>
+            <Button style={{color:'blue'}} onClick={handleSubmit}>Comment</Button>
         </div>
     )
 
