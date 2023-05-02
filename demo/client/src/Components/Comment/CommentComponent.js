@@ -13,8 +13,8 @@ function CommentComponent(props) {
         author:localStorage.getItem('name')
     })
     const handleSubmit = (event) => {
-        event.preventDefault();
-        window.location.reload()
+        //event.preventDefault();
+        //window.location.reload()
         console.log(comment1)
         try {
             //backEndApi
@@ -28,6 +28,7 @@ function CommentComponent(props) {
                     })
                         .then(response => {
                             console.log(response.data);
+                            window.location.reload()
                         }
                         )
                         .catch(error => {
