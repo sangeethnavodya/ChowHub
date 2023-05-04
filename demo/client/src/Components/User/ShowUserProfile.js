@@ -113,7 +113,7 @@ function Profile() {
   }
 
   function handleFollow() {
-    window.location.reload();
+    //window.location.reload();
     if (needToInit) {
       axios.post("http://localhost:8080/follow/upload", Follow);
       setneedToInit(false);
@@ -124,7 +124,25 @@ function Profile() {
           localStorage.getItem("userId") +
           "/" +
           localStorage.getItem("otherId")
-      );
+      )
+          .then((res) => {
+              console.log('followed');
+                axios.post('http://localhost:8080/notifications', {
+                  "userId": localStorage.getItem("otherId"),
+                  "message": localStorage.getItem('name') + " has unfollowed you",
+                  "seen": false
+                })
+                    .then(response => {
+                          console.log(response.data);
+                          //window.location.reload()
+                        }
+                    )
+                    .catch(error => {
+                          console.error(error);
+                        }
+                    );
+          }
+            );
       setFollowBTN("Follow");
     } else if (!needToInit && !isFollow) {
       axios.put(
@@ -132,7 +150,25 @@ function Profile() {
           localStorage.getItem("userId") +
           "/" +
           localStorage.getItem("otherId")
-      );
+      )
+            .then((res) => {
+                console.log('unfollowed');
+                axios.post('http://localhost:8080/notifications', {
+                    "userId": localStorage.getItem("otherId"),
+                    "message": localStorage.getItem('name') + " has followed you",
+                    "seen": false
+                })
+                    .then(response => {
+                            console.log(response.data);
+                            //window.location.reload()
+                        }
+                    )
+                    .catch(error => {
+                            console.error(error);
+                        }
+                    );
+            }
+            );
       setFollowBTN("UnFollow");
     }
   }
