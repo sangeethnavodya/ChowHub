@@ -52,9 +52,11 @@ function UCommentComponent(props) {
 
     }
     return (
-        <div>
-            <Input placeholder="Enter Your Comment" className="comment-input" onChange={handleCaption} />
-            <Button  onClick={handleSubmit}>Update</Button>
+        <div style={{
+            marginLeft:"30px"
+        }}>
+            <Input placeholder="Enter Your Comment" className="comment-input" onChange={handleCaption}  />
+            <Button  onClick={handleSubmit} >Update</Button>
         </div>
     )
 

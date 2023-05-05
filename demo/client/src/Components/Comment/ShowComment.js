@@ -49,9 +49,11 @@ function ShowComments(props) {
                                 <div>
                                 {post.author==localStorage.getItem('name')&&<div
                                 style={{
-                                    height:"55px"
+                                    height:"80px"
                                 }}>
                                     <Space direction='horizontal'>
+                                        {setU&&
+                                            <Space direction='horizontal'>
                                         <Button style={{
                                             display:"flex",
                                             justifyContent:"center",
@@ -60,7 +62,7 @@ function ShowComments(props) {
                                             color:'red',
                                             marginTop:"30px"
                                         }} onClick={()=>handleDelete(post.id)}>Delete</Button>
-                                        {setU&&
+
                                             <div>
                                                 <Button style={{
                                                     display:"flex",
@@ -70,6 +72,7 @@ function ShowComments(props) {
                                                     marginTop:"30px"
                                                 }} onClick={()=>handleUpdate(post.id)}>Update</Button>
                                             </div>
+                                            </Space>
                                         }
                                         {enableU&&<UCommentComponent data={post}/>
                                         }

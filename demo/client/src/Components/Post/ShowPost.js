@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {Button, Card, Space} from "antd";
 import Meta from "antd/es/card/Meta";
+import { Divider } from 'antd';
 
 import "../Post/post.css";
 import ReactComponent from "./ReactComponent";
@@ -145,16 +146,17 @@ function PostList() {
                                     {/* onClickForDelete*/}
                                     <Button style={{
                                         marginTop: "10px",
-                                        marginLeft: "20px"
+
                                     }} onClick={() => deleteThisPost(post.id)}>Delete this post</Button>
                                     <Button style={{
                                         marginTop: "10px",
-                                        marginLeft: "20px"
+
                                     }} onClick={() => HandlUpdateThisPost(post.id)}>Update this post</Button>
                                 </Space>
                                 {/*UpdatethisPostForm*/}
                               {enableU&&
                                 <Space>
+                                    <Divider/>
                                 <UCreatePost data={post.id}/>
                                 </Space>}
                             </Space>

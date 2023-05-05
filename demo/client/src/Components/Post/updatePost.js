@@ -1,5 +1,4 @@
 import {PlusOutlined} from '@ant-design/icons';
-import '../Post/create.css'
 import {
     AutoComplete,
     Button, Card,
@@ -24,8 +23,10 @@ import MenuBar from "../MenuBar";
 import Background from "./background";
 import FormItemLabel from "antd/es/form/FormItemLabel";
 
+
 const {RangePicker} = DatePicker;
 const {TextArea} = Input;
+
 
 
 function UCreatePost(props) {
@@ -41,6 +42,7 @@ function UCreatePost(props) {
     const [isImage4, setIsImage4] = useState(false)
     const [image5, setImage5] = useState('')
     const [isImage5, setIsImage5] = useState(false)
+
 
     const [caption, setCaption] = useState('')
 
@@ -192,8 +194,7 @@ function UCreatePost(props) {
             >
                 <Form.Item
                     style={{
-                        width: 400,
-                        marginLeft: "10px",
+                        width:"1100px",
                         marginTop: "20px",
                         marginBottom: "20px"
                     }}
@@ -241,18 +242,14 @@ function UCreatePost(props) {
                         </div>
                     </Space>
 
+                    <Button onClick={handleSubmit} style={{
 
+                        marginTop: "60px"
+                    }}>
+                        Update Post
+                    </Button>
                 </Space>
-
-                <Button onClick={handleSubmit} style={{
-                    marginLeft: "10px",
-                    marginTop: "20px"
-                }}>
-                    Update Post
-                </Button>
             </Form>
-
-            <Background/>
         </>
     );
 }

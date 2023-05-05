@@ -134,7 +134,7 @@ function Profile() {
                 })
                     .then(response => {
                           console.log(response.data);
-                          //window.location.reload()
+                          window.location.reload()
                         }
                     )
                     .catch(error => {
@@ -160,7 +160,7 @@ function Profile() {
                 })
                     .then(response => {
                             console.log(response.data);
-                            //window.location.reload()
+                            window.location.reload()
                         }
                     )
                     .catch(error => {

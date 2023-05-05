@@ -225,8 +225,9 @@ function CreatePost() {
                             }}>
                                 Upload picture 1
                             </Button>
-                            {isImage1 && <div style={{color: "red"}} style={{
-                                borderRadius: "20px"
+                            {isImage1 && <div style={{
+                                borderRadius: "20px",
+                                color: "red"
                             }}> uploaded</div>}
                         </div>
                         <div style={{height: "60px"}}>

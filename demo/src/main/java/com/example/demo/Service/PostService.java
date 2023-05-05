@@ -37,39 +37,25 @@ public class PostService {
         if (existingUser.isPresent()) {
             System.out.println("d");
             Post updatedUser = existingUser.get();
-            if(post.getImage1()!=null){
+            if(!post.getImage1().isEmpty()){
             updatedUser.setImage1(post.getImage1());
             }
-            if(post.getImage1()==null){
-                updatedUser.setImage1(null);
-            }
-            if(post.getImage2()==null){
-                updatedUser.setImage2(null);
-            }
-            if(post.getImage3()==null){
-                updatedUser.setImage3(null);
-            }
-            if(post.getImage4()==null){
-                updatedUser.setImage4(null);
-            }
-            if(post.getImage5()==null){
-                updatedUser.setImage5(null);
-            }
-            if(post.getImage2()!=null) {
+            if(!post.getImage2().isEmpty()) {
                 updatedUser.setImage2(post.getImage2());
             }
-            if(post.getImage3()!=null) {
+            if(!post.getImage3().isEmpty()) {
                 updatedUser.setImage3(post.getImage3());
             }
-            if(post.getImage4()!=null) {
+            if(!post.getImage4().isEmpty()) {
                 updatedUser.setImage4(post.getImage4());
             }
-            if(post.getImage5()!=null) {
+            if(!post.getImage5().isEmpty()) {
                 updatedUser.setImage5(post.getImage5());
             }
-            if(post.getCaption()!=null) {
+            if(!post.getCaption().isEmpty()) {
                 updatedUser.setCaption(post.getCaption());
             }
+
             postRepository.save(updatedUser);
         } else {
             throw new RuntimeException("User not found with id: " + id);
