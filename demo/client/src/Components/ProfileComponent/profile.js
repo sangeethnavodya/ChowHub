@@ -141,6 +141,7 @@ function Profile() {
                 marginLeft: "30px",
                 marginBottom:"60px",
                 borderRadius:"20px",
+                marginTop:"20px",
                 backgroundColor:"#eaeae0"
 
 
@@ -152,7 +153,7 @@ function Profile() {
                         <div>
                             <div style={{color:"black",
                                 fontSize:"20px",
-                                width:"700px",
+                                width:"500px",
                                 display:"flex",
                                 justifyContent:"center",
                                 alignItems:"center"
@@ -180,7 +181,7 @@ function Profile() {
                                 onChange={handleCaption}
                                 name="caption"
                                 style={{
-                                    width:"700px",
+                                    width:"500px",
                                     marginBottom:"50px",
                                     borderRadius:"30px",
 
