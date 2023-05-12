@@ -97,8 +97,9 @@ function Profile() {
     function handelDelete(){
         axios.delete("http://localhost:8080/user/"+localStorage.getItem('userId')).then(
             u=>{
-                navigate('/signup');
+                navigate('/');
                 sessionStorage.clear()
+                localStorage.clear()
             }
         );
     }
