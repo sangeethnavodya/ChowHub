@@ -39,6 +39,11 @@ public class UserController {
         userService.updateBio(id, user);
     }
 
+    @DeleteMapping("/{id}")
+    public void Delete(@PathVariable("id") String id) {
+        userService.deleteUser(id);
+    }
+
 
     @GetMapping("")
     public List<User> getAll(){
